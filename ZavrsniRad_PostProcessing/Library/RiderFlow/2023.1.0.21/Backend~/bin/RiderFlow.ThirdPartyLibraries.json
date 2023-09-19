@@ -1,0 +1,723 @@
+[
+  {
+    "name": "ANTLRv2 Runtime",
+    "url": "http://www.antlr2.org/",
+    "version": "2.7.7.3",
+    "license": "Custom license",
+    "licenseUrl": "http://www.antlr2.org/license.html"
+  },
+  {
+    "name": "Appccelerate.StateMachine",
+    "url": "https://github.com/appccelerate/statemachine",
+    "version": "3.3.0",
+    "license": "Apache-2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  {
+    "name": "Bouncy Castle Portable",
+    "url": "https://www.bouncycastle.org/csharp/",
+    "version": "1.9.0",
+    "license": "MIT",
+    "licenseUrl": "https://www.bouncycastle.org/csharp/licence.html"
+  },
+  {
+    "name": "C# File Resource Management Library",
+    "url": "https://github.com/dblock/resourcelib",
+    "version": "1.4.20210120.1",
+    "license": "MIT",
+    "licenseUrl": "http://opensource.org/licenses/MIT"
+  },
+  {
+    "name": "CLR Memory Diagnostics (ClrMD)",
+    "url": "https://github.com/Microsoft/clrmd",
+    "version": "2.0.20220505.11",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "ClrStack",
+    "url": "https://github.com/JetBrains/clrstack",
+    "version": "2.0.6",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "DotNetZip",
+    "url": "https://github.com/haf/DotNetZip.Semverd",
+    "version": "1.11.0",
+    "license": "Microsoft Public License (Ms-PL)",
+    "licenseUrl": "https://raw.githubusercontent.com/haf/DotNetZip.Semverd/master/LICENSE"
+  },
+  {
+    "name": "Git-Credential-Manager",
+    "url": "",
+    "version": "0.1.0",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/Git-Credential-Manager-for-Windows/blob/master/LICENSE.txt"
+  },
+  {
+    "name": "JetBrains Annotations",
+    "url": "https://www.jetbrains.com/help/resharper/Code_Analysis__Code_Annotations.html",
+    "version": "2022.3.1",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "JetBrains Platform LevelDB Native DLLs",
+    "url": "https://github.com/google/leveldb",
+    "version": "20221018.88.0",
+    "license": "BSD-3-Clause",
+    "licenseUrl": "https://licenses.nuget.org/BSD-3-Clause"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-arm",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-arm/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-arm64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-arm64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-musl-arm",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-musl-arm/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-musl-arm64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-musl-arm64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-musl-x64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-musl-x64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.linux-x64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.linux-x64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.macos-arm64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.macos-arm64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.macos-x64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.macos-x64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.windows-arm64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "Microsoft Software License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.windows-arm64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.DotNetCore.Runtime.windows-x64",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "7.0.20221126.30",
+    "license": "Microsoft Software License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.DotNetCore.Runtime.windows-x64/7.0.20221126.30/License"
+  },
+  {
+    "name": "JetBrains.FormatRipper",
+    "url": "https://github.com/JetBrains/format-ripper/blob/master/Readme.md",
+    "version": "1.1.0",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.Lifetimes",
+    "url": "https://github.com/JetBrains/rd",
+    "version": "2022.3.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.monodoc",
+    "url": "https://github.com/mono/api-doc-tools",
+    "version": "2022.6.25",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/mono/api-doc-tools/blob/master/LICENSE.md"
+  },
+  {
+    "name": "JetBrains.NuGet.Commands",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Common",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Configurations",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Core",
+    "url": "https://github.com/NuGet/NuGet2",
+    "version": "2.14.2.20220408",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://raw.githubusercontent.com/NuGet/NuGet2/master/LICENSE.txt"
+  },
+  {
+    "name": "JetBrains.NuGet.Credentials",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.DependencyResolver.Core",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Frameworks",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.LibraryModel",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.PackageManagement",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Packaging",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.ProjectModel",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Protocol",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Resolver",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.NuGet.Versioning",
+    "url": "https://aka.ms/nugetprj",
+    "version": "6.4.20221128.96",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.Profiler.Api",
+    "url": "https://github.com/JetBrains/profiler-api/blob/master/README.md",
+    "version": "1.3.0",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.Profiler.SelfApi",
+    "url": "https://github.com/JetBrains/profiler-self-api/blob/master/README.md",
+    "version": "2.4.0",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.RdFramework",
+    "url": "https://github.com/JetBrains/rd",
+    "version": "2022.3.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.RdFramework.Reflection",
+    "url": "https://github.com/JetBrains/rd",
+    "version": "2022.3.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.2.94",
+    "license": "Custom License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.ReSharper.TestRunner/2.11.2.94/License"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner.Adapters.MsTest",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.1.38",
+    "license": "Microsoft Software License",
+    "licenseUrl": "https://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner.Adapters.NUnit2",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.1.30",
+    "license": "Custom License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.ReSharper.TestRunner.Adapters.NUnit2/2.11.1.30/License"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner.Adapters.NUnit3",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.1.58",
+    "license": "Custom License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.ReSharper.TestRunner.Adapters.NUnit3/2.11.1.58/License"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner.Adapters.VsTest",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.1.12",
+    "license": "Microsoft Software License",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.ReSharper.TestRunner.Adapters.VsTest/2.11.1.12/License"
+  },
+  {
+    "name": "JetBrains.ReSharper.TestRunner.Adapters.XUnit",
+    "url": "https://www.jetbrains.com/resharper/",
+    "version": "2.11.1.35",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://www.nuget.org/packages/JetBrains.ReSharper.TestRunner.Adapters.XUnit/2.11.1.35/License"
+  },
+  {
+    "name": "JetBrains.Roslyn.References.Repack",
+    "url": "https://jetbrains.com/",
+    "version": "42.42.20221125.165924",
+    "license": "Apache-2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  {
+    "name": "Json.NET",
+    "url": "https://www.newtonsoft.com/json",
+    "version": "13.0.1",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "Lucene.Net",
+    "url": "http://lucenenet.apache.org/",
+    "version": "3.0.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  {
+    "name": "Microsoft Xml Document Transformation",
+    "url": "https://github.com/aspnet/xdt",
+    "version": "3.0.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "https://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Bcl.AsyncInterfaces",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "Microsoft.CodeAnalysis.FlowAnalysis.Utilities",
+    "url": "https://github.com/dotnet/roslyn-analyzers",
+    "version": "2.9.5",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "name": "Microsoft.Diagnostics.NETCore.Client",
+    "url": "https://github.com/dotnet/diagnostics",
+    "version": "0.2.221401",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "Microsoft.DiaSymReader",
+    "url": "https://github.com/dotnet/symreader",
+    "version": "1.4.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "Microsoft.Extensions.DependencyModel",
+    "url": "https://dot.net/",
+    "version": "3.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://www.nuget.org/packages/Microsoft.Extensions.DependencyModel/3.0.0/License"
+  },
+  {
+    "name": "Microsoft.Owin",
+    "url": "http://katanaproject.codeplex.com/",
+    "version": "3.0.1",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Owin.FileSystems",
+    "url": "http://katanaproject.codeplex.com/",
+    "version": "3.0.1",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Owin.Host.HttpListener",
+    "url": "http://katanaproject.codeplex.com/",
+    "version": "3.0.1",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Owin.Hosting",
+    "url": "http://katanaproject.codeplex.com/",
+    "version": "3.0.1",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Owin.StaticFiles",
+    "url": "http://katanaproject.codeplex.com/",
+    "version": "3.0.1",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.TestPlatform.TranslationLayer",
+    "url": "https://github.com/microsoft/vstest/",
+    "version": "16.0.0.20191015",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm"
+  },
+  {
+    "name": "Microsoft.Win32.Registry",
+    "url": "https://dot.net/",
+    "version": "4.0.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "NVelocity",
+    "url": "http://www.castleproject.org/",
+    "version": "1.0.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  {
+    "name": "OWIN",
+    "url": "https://github.com/owin-contrib/owin-hosting/",
+    "version": "1.0",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://github.com/owin-contrib/owin-hosting/blob/master/LICENSE.txt"
+  },
+  {
+    "name": "Sprache.JetBrains",
+    "url": "https://github.com/sprache/Sprache",
+    "version": "2.1.0",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/sprache/Sprache/blob/master/licence.txt"
+  },
+  {
+    "name": "SQLitePCLRaw.core",
+    "url": "https://github.com/ericsink/SQLitePCL.raw",
+    "version": "1.1.2",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://raw.github.com/ericsink/SQLitePCL.raw/master/LICENSE.TXT"
+  },
+  {
+    "name": "Stubs for Microsoft.WindowsDesktop.App",
+    "url": "http://www.jetbrains.com/",
+    "version": "0.0.18",
+    "license": "MIT",
+    "licenseUrl": "http://opensource.org/licenses/mit-license.php"
+  },
+  {
+    "name": "System.Buffers",
+    "url": "https://dot.net/",
+    "version": "4.5.1",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+  },
+  {
+    "name": "System.CodeDom",
+    "url": "https://github.com/dotnet/corefx",
+    "version": "4.7.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Collections.Immutable",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Composition.AttributedModel",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Composition.Convention",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Composition.Hosting",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Composition.Runtime",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Composition.TypedParts",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Configuration.ConfigurationManager",
+    "url": "https://github.com/dotnet/corefx",
+    "version": "4.7.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Diagnostics.EventLog",
+    "url": "https://github.com/dotnet/corefx",
+    "version": "4.7.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Drawing.Common",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.2",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.IO.FileSystem.AccessControl",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.IO.Ports",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Memory",
+    "url": "https://dot.net/",
+    "version": "4.5.4",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+  },
+  {
+    "name": "System.Numerics.Vectors",
+    "url": "https://dot.net/",
+    "version": "4.5.0",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+  },
+  {
+    "name": "System.Reflection",
+    "url": "https://dot.net/",
+    "version": "4.1.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "System.Reflection.Metadata",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Reflection.TypeExtensions",
+    "url": "https://dot.net/",
+    "version": "4.1.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "System.Runtime.CompilerServices.Unsafe",
+    "url": "https://dot.net/",
+    "version": "4.5.3",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+  },
+  {
+    "name": "System.Runtime.InteropServices.RuntimeInformation",
+    "url": "https://dot.net/",
+    "version": "4.3.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "System.Security.AccessControl",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Security.Cryptography.ProtectedData",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Security.Permissions",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Security.Principal.Windows",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.ServiceProcess.ServiceController",
+    "url": "https://dot.net/",
+    "version": "4.1.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "System.Text.Encoding.CodePages",
+    "url": "https://dot.net/",
+    "version": "4.3.0",
+    "license": "Microsoft Software License",
+    "licenseUrl": "http://go.microsoft.com/fwlink/?LinkId=329770"
+  },
+  {
+    "name": "System.Threading.AccessControl",
+    "url": "https://github.com/dotnet/runtime",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Threading.Channels",
+    "url": "https://dot.net/",
+    "version": "6.0.0",
+    "license": "MIT",
+    "licenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "name": "System.Threading.Tasks.Extensions",
+    "url": "https://dot.net/",
+    "version": "4.5.4",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+  },
+  {
+    "name": "WiX: Windows Installer XML Toolset",
+    "url": "http://wixtoolset.org/",
+    "version": "3.11.0",
+    "license": "Microsoft Reciprocal License (MS-RL)",
+    "licenseUrl": "http://wixtoolset.org/about/license/"
+  },
+  {
+    "name": "xmlrpcnet",
+    "url": "http://www.xml-rpc.net/",
+    "version": "2.5.0",
+    "license": "MIT",
+    "licenseUrl": "http://www.opensource.org/licenses/mit-license.php"
+  },
+  {
+    "name": "xUnit.net",
+    "url": "https://github.com/xunit/xunit",
+    "version": "1.9.2",
+    "license": "Apache-2.0",
+    "licenseUrl": "http://xunit.codeplex.com/license"
+  },
+  {
+    "name": "xUnit.net [Abstractions]",
+    "url": "https://github.com/xunit/xunit",
+    "version": "2.0.3",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://raw.githubusercontent.com/xunit/xunit/master/license.txt"
+  },
+  {
+    "name": "xUnit.net [Runner Utility]",
+    "url": "https://github.com/xunit/xunit",
+    "version": "2.4.1",
+    "license": "Apache-2.0",
+    "licenseUrl": "https://raw.githubusercontent.com/xunit/xunit/master/license.txt"
+  },
+  {
+    "name": "YamlDotNet.Signed",
+    "url": "https://github.com/aaubry/YamlDotNet/wiki",
+    "version": "5.2.1",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/aaubry/YamlDotNet/wiki#license"
+  }
+]

@@ -355,8 +355,11 @@
 -analyzer:"C:/Users/Jakov/Documents/Unity/2022.2.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Code/Blur/Blur.cs"
 "Assets/Code/Blur/BlurParameters.cs"
+"Assets/Code/Character.cs"
 "Assets/Code/EffectParameter.cs"
 "Assets/Code/PostProcessingDriver.cs"
+"Assets/Code/Sharpen/Sharpen.cs"
+"Assets/Code/Sharpen/SharpenParameters.cs"
 -langversion:9.0
 
 /deterministic

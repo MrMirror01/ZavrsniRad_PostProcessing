@@ -9,9 +9,7 @@ Shader "Hidden/Blur"
         // No culling or depth
         Cull Off ZWrite Off ZTest Always
 
-        Pass
-        {
-            CGPROGRAM
+        CGINCLUDE
             #pragma vertex vert
             #pragma fragment frag
 
@@ -38,17 +36,198 @@ Shader "Hidden/Blur"
             }
 
             sampler2D _MainTex;
-            float _Swipe; 
+            //Unity automatski postavlja vrijednost na {1 / sirina teksture, 1 / visina teksture, sirina teksture, visina teksture}
+            //gdje je 1 / sirina teksture = sirina pikesla u UV koordinatama
+            float4 _MainTex_TexelSize;
+            float _Swipe;
+        ENDCG
+
+        Pass
+        {
+            Name "BoxBlur"
+
+            CGPROGRAM
+            fixed3 getBlurCol(float2 uv){
+                fixed3 blurcol = 0; //boja zamucenog piksela
+
+                //uzimamo uzorke na 7x7 piksela sa centrom u trenutnom pikselu
+                //izracunavamo aritmeticku sredinu boja
+                for (int i = -3; i <= 3; i++){
+                    for (int j = -3; j <= 3; j++){
+                        blurcol += tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).rgb;
+                    }
+                }
+                blurcol /= 49;
+
+                return blurcol.rgb;
+            }
 
             fixed4 frag (v2f IN) : SV_Target
             {
+                //procitamo boju piksela
                 fixed4 col = tex2D(_MainTex, IN.uv);
                 if (_Swipe < IN.uv.x) return col;
-                
-                // just invert the colors
-                col.rgb = 1 - col.rgb;
-                return col;
-                
+
+                return fixed4(getBlurCol(IN.uv), 1.0);
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "WeightedByDistance"
+
+            CGPROGRAM
+            fixed3 getBlurCol(float2 uv){
+                fixed3 blurcol = 0; //boja zamucenog piksela
+
+                //uzimamo uzorke na 7x7 piksela sa centrom u trenutnom pikselu
+                //izracunavamo sredinu boja tako da pikseli blize trenutnom pikselu vise utjecu na finalni rezultat
+                float totalWeight = 0;
+                for (int i = -3; i <= 3; i++){
+                    for (int j = -3; j <= 3; j++){
+                        float weight = length(float2(i, j));
+                        totalWeight += weight;
+                        blurcol += tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).rgb * weight;
+                    }
+                }
+                blurcol /= totalWeight;
+
+                return blurcol.rgb;
+            }
+            
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                //procitamo boju piksela
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                return fixed4(getBlurCol(IN.uv), 1.0);
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "GaussianBlur"
+
+            CGPROGRAM
+            static const float gaussianKernel[49] = {
+                0.00000067, 0.00002292, 0.00019117, 0.00038771, 0.00019117, 0.00002292, 0.00000067,
+                0.00002292, 0.00078633, 0.00655965, 0.01330373, 0.00655965, 0.00078633, 0.00002292,
+                0.00019117, 0.00655965, 0.05472157, 0.11098164, 0.05472157, 0.00655965, 0.00019117,
+                0.00038771, 0.01330373, 0.11098164, 0.22508352, 0.11098164, 0.01330373, 0.00038771,
+                0.00019117, 0.00655965, 0.05472157, 0.11098164, 0.05472157, 0.00655965, 0.00019117,
+                0.00002292, 0.00078633, 0.00655965, 0.01330373, 0.00655965, 0.00078633, 0.00002292,
+                0.00000067, 0.00002292, 0.00019117, 0.00038771, 0.00019117, 0.00002292, 0.00000067
+            };
+
+            fixed3 getBlurCol(float2 uv){
+                fixed3 blurcol = 0; //boja zamucenog piksela
+                float totalWeight = 0;
+
+                //uzimamo uzorke na 5x5 piksela sa centrom u trenutnom pikselu
+                //izracunavamo sredinu boja tako da pikseli blize trenutnom pikselu vise utjecu na finalni rezultat
+                //ali prema normaliziranoj Gausovoj distribuciji koja je izracunata unaprijed i zapisana u matricu 'gaussianKernel'
+                for (int i = -3; i <= 3; i++){
+                    for (int j = -3; j <= 3; j++){
+                        float weight = gaussianKernel[(i + 3) * 7 + j + 3];
+                        blurcol += tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).rgb * weight;
+                    }
+                }
+
+                return blurcol.rgb;
+            }
+            
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                //procitamo boju piksela
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                return fixed4(getBlurCol(IN.uv), 1.0);
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "OptimisedGaussianHorizontal"
+
+            CGPROGRAM
+            static const float optimisedGaussianKernel[7] = {
+                0.0014439178187225007,
+                0.035614480755336686,
+                0.23877678696410898,
+                0.44832962892366385,
+                0.23877678696410898,
+                0.035614480755336686,
+                0.0014439178187225007
+            };
+
+            fixed3 getBlurCol(float2 uv){
+                fixed3 blurcol = 0; //boja zamucenog piksela
+                float totalWeight = 0;
+
+                //uzimamo uzorke na 5 piksela u redu sa centrom u trenutnom pikselu
+                //izracunavamo sredinu boja tako da pikseli blize trenutnom pikselu vise utjecu na finalni rezultat
+                //ali prema normaliziranoj Gausovoj distribuciji koja je izracunata unaprijed i zapisana u matricu 'optimisedGaussianKernel'
+                for (int i = -3; i <= 3; i++){
+                    float weight = optimisedGaussianKernel[(i + 3)];
+                    blurcol += tex2D(_MainTex, uv + float2(_MainTex_TexelSize.x * i, 0)).rgb * weight;
+                }
+
+                return blurcol.rgb;
+            }
+            
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                //procitamo boju piksela
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                return fixed4(getBlurCol(IN.uv), 1.0);
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "OptimisedGaussianVertical"
+
+            CGPROGRAM
+            static const float optimisedGaussianKernel[7] = {
+                0.0014439178187225007,
+                0.035614480755336686,
+                0.23877678696410898,
+                0.44832962892366385,
+                0.23877678696410898,
+                0.035614480755336686,
+                0.0014439178187225007
+            };
+
+            fixed3 getBlurCol(float2 uv){
+                fixed3 blurcol = 0; //boja zamucenog piksela
+                float totalWeight = 0;
+
+                //uzimamo uzorke na 5 piksela u stupcu sa centrom u trenutnom pikselu
+                //izracunavamo sredinu boja tako da pikseli blize trenutnom pikselu vise utjecu na finalni rezultat
+                //ali prema normaliziranoj Gausovoj distribuciji koja je izracunata unaprijed i zapisana u matricu 'optimisedGaussianKernel'
+                for (int i = -3; i <= 3; i++){
+                    float weight = optimisedGaussianKernel[(i + 3)];
+                    blurcol += tex2D(_MainTex, uv + float2(0, _MainTex_TexelSize.y * i)).rgb * weight;
+                }
+
+                return blurcol.rgb;
+            }
+            
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                //procitamo boju piksela
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                return fixed4(getBlurCol(IN.uv), 1.0);
             }
             ENDCG
         }

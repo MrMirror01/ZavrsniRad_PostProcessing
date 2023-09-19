@@ -8,8 +8,16 @@ using UnityEditor;
 [Serializable]
 public class BlurParameters : EffectParameter
 {
+    public enum BlurType
+    {
+        BoxBlur = 0,
+        WeightedByDistance = 1,
+        GaussianBlur = 2,
+        OptimisedGaussianBlur = 3,
+    }
+
     [Space(10)]
-    public Shader shader;
-    [Range(0, 32)]
-    public int kernelSize;
+    public BlurType type;
+    [Range(1, 25)]
+    public int iterations = 1;
 }

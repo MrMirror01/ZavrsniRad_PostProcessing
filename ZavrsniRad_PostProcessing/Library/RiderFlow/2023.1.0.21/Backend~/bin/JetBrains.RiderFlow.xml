@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.RiderFlow</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.RiderFlow.Product.RiderFlowZonesVerifier">
+            <summary>
+            Checks that zones for Rider normal work is loaded and if not, write exception  
+            </summary>
+        </member>
+    </members>
+</doc>

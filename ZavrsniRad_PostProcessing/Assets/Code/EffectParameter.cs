@@ -8,6 +8,8 @@ using UnityEngine;
 public abstract class EffectParameter
 {
     public bool active = true;
+    public Shader shader;
     [Range(0f, 1f)]
     public float swipe = 1f;
+	
 }

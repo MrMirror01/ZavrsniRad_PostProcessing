@@ -6,15 +6,14 @@ using UnityEngine;
 public class PostProcessingDriver : MonoBehaviour
 {
     public BlurParameters blur;
+	[Space(10)]
+    public SharpenParameters sharpen;
 
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
-		//RenderTexture intermediete = RenderTexture.GetTemporary(source.descriptor);
-		//Graphics.Blit(source, new Material(blur.shader));
-
-		if (blur.active) Blur.ApplyEffect(source, blur);
+		if (blur.active) Blur.applyEffect(source, blur);
+		if (sharpen.active) Sharpen.applyEffect(source, sharpen);
 
 		Graphics.Blit(source, destination);
-		//RenderTexture.ReleaseTemporary(intermediete);
 	}
 }

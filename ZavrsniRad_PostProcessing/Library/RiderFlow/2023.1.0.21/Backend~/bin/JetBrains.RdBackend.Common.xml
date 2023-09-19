@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.RdBackend.Common</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.RdBackend.Common.Features.CodeCleanup.RiderCodeCleanupModule">
+            <summary>
+            Represents FAKE code cleanup module that only defines the <see cref="F:JetBrains.RdBackend.Common.Features.CodeCleanup.RiderCodeCleanupModule.IdeaCodeCleanupOptionsDescriptor"/> to store IDEA-based cleanup settings in code cleanup profiles.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Completion.IRiderAsyncCompletionLookupItem">
+            <summary>
+            Don't use it!
+            This is temporary solution to allow async lookup items for F# plugin.
+            The interface marks non-aspect lookup items as async.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Completion.SummaryInfo.RiderRichTextBlockFormatter">
+            <summary>
+            Copy-pasted RichTextBlockFormatter that's just supposed to prevent text overflow by string length.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Completion.SummaryInfo.RiderRichTextBlockFormatter.Format(JetBrains.UI.RichText.RichTextBlock,System.Int32,System.Int32)">
+            <summary>
+            Reflows the set of <see cref="T:JetBrains.UI.RichText.RichText"/> strings so that they don't overflow the specified size.
+            The existing line breaks are kept, new ones are added as needed.
+            </summary>
+            <param name="block">The source lines of text.</param>
+            <param name="maxLineLength">The maximum line length.</param>
+            <param name="maxLineNumber">The maximum line number.</param>
+            <returns>The formatted rich text with new line breaks.</returns>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Completion.SummaryInfo.RiderRichTextBlockFormatter.Format(JetBrains.UI.RichText.RichText,System.Int32,System.Int32)">
+            <summary>
+            Reflows the single line of <see cref="T:JetBrains.UI.RichText.RichText"/> so that it doesn't overflow the specified size.
+            The line breaks are added as needed.
+            </summary>
+            <param name="text">The source line of text.</param>
+            <param name="maxLineLength">The maximum line length.</param>
+            <param name="maxLineNumber">The maximum line number.</param>
+            <returns>The formatted rich text with new line breaks.</returns>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.IRiderHighlighterDescriptionStorage.HighlighterGroups">
+            <summary>
+            All highlighter groups registered with <see cref="T:JetBrains.TextControl.DocumentMarkup.RegisterHighlighterGroupAttribute"/> sorted according priority
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.IRiderHighlighterDescriptionStorage.GetDescriptions(JetBrains.TextControl.DocumentMarkup.HighlighterGroup)">
+            <summary>
+            Gets all highlighter descriptions corresponding a specific highlighter group
+            </summary>
+            <param name="group"> a highlighter group registered with <see cref="T:JetBrains.TextControl.DocumentMarkup.RegisterHighlighterGroupAttribute"/></param>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.IRiderHighlighterDescriptionStorage.GetDescription(System.String)">
+            <summary>
+            Gets highlighter description by its attributeId
+            </summary>
+            <param name="attributeId"> a unique identifier <see cref="P:JetBrains.TextControl.DocumentMarkup.RegisterHighlighterAttribute.Id"/></param>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.IRiderHighlighterRegistry.GetLayer(JetBrains.TextControl.DocumentMarkup.IHighlighter)">
+            <summary>
+            Returns corrected highlighter layer for IDEA environment
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderDefaultHighlighterPropertiesProvider.IsVerifiable(JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription)">
+            <summary>
+            Determines should a highlighter be invalidated if it's applied upon document changes which are inside highlighter's range.
+            This helps to reuse existing highlighters and reduce blinking for identifiers which most likely will be received again.
+            Rider postpones deletion of these highlighters to the end of the daemon analysis.
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.AttributeId">
+            <summary>
+            Original AttributeId from RegisterHighlighterAttribute
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.FallbackDescription">
+            <summary>
+            Next element in the fallback hierarchy. Used to inherit attributes or as a full replacement for registered highlighter 
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.SettingsGroup">
+            <summary>
+            Highlighter group highlighter is associated with
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.PresentableName">
+            <summary>
+            String shown in Rider settings UI
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.HighlighterID">
+            <summary>
+            Valid identifier created from AttributeId
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.ExternalName">
+            <summary>
+            String used to store attributes in IDEA color schemes and as externalName in TextAttributesKey
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription.LightDarkSchemeAttributes">
+            <summary>
+            IDEA-based model representation of the way highlighter should be shown in the editor 
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterLayerCorrecter.SYNTAX">
+            <summary>
+            Copy of com.intellij.openapi.editor.markup.HighlighterLayer
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Daemon.Registration.IRiderHighlighterPropertiesProvider">
+            <summary>
+            Interface for defining custom highlighter properties in Rider.
+            Implementing class should be ShellComponent
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.Util.ToIdeaTextAttributes(JetBrains.TextControl.DocumentMarkup.HighlighterAttributes,JetBrains.RdBackend.Common.Features.Daemon.Registration.LightDarkSchemeAttributes)">
+            <summary>
+            Converts ReSharper's HighlighterAttributes to best matching IDEA's ones.
+            There's no one-to-one correspondence and a lot of edge cases to make it done right.
+            Edit carefully.
+            </summary>
+            <param name="highlighterAttributes">attributes from ReSharper world</param>
+            <param name="errorStripe">Transformed attributes of a errorStripe</param>
+            <returns>IDEA's carbon copy of HighlighterTextAttributes in two variants (for Light and Dark Theme)</returns>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Daemon.Registration.Util.InferSchemeAttributes(JetBrains.RdBackend.Common.Features.Daemon.Registration.RiderHighlighterDescription,System.Boolean)">
+            <summary>
+            Returns null if attributes should be inherited from baseAttribute
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind">
+            <summary>
+            All these types require different handling in Rider, that's why we separate them
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind.USUAL">
+            <summary>
+            Just an effect applied to the text in the editor
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind.GUTTER_MARK">
+            <summary>
+            Clickable icon on the gutter margin
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind.FOLDING">
+            <summary>
+            Collapsable regions in the editor
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind.LINE_MARKER">
+            <summary>
+            Custom effect drawn on gutter margin 
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.Daemon.RiderHighlighterKind.INLAY">
+            <summary>
+            Zero-length virtual adornment in the editor (e.g. Parameter Hint, Type Hints, etc.)
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Daemon.Tooltips.Suppressors.CSharpVarQuickDocTooltipSuppressor">
+            <summary>
+            Suppresses tooltips for 'var' highlighters. In Rider,
+            we have hoverdocs that perform the same task (and, in fact, call the same code for content generation),
+            so we don't need this. <see cref="!:CSharpVarQuickDocProvider"/>
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Daemon.Tooltips.Suppressors.HighlightingBasedQuickDocTooltipSuppressor`1">
+            <summary>
+            Suppresses tooltips for all highlighters created for highlighting of type <code>THighlighting</code>
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Documents.IDocumentHostEngine">
+            <summary>
+            Provides underlying implementation of document related operations: access and to protocol documents collection, creation of document handlers etc. 
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Documents.ISandboxDocumentLanguageSupport.SetupSandboxFile(JetBrains.ReSharper.Psi.Files.SandboxFiles.SandboxPsiSourceFile,JetBrains.Rider.Model.SandboxInfo,JetBrains.Lifetimes.Lifetime)">
+            <summary>
+            Do anything extra AFTER the sandbox file has been created
+            </summary>
+            <param name="sandboxFile">the sandbox file that has been just created</param>
+            <param name="sandboxInfo">corresponding sandbox info</param>
+            <param name="lifetime">sandbox lifetime</param>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Documents.RiderFileSystemDocumentHandler.Moniker">
+            <inheritdoc />
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Documents.DocumentHostExtensions.CreateDocumentId(System.Int32,System.String)">
+            <summary>
+            Should be use from platform code only
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Documents.DocumentHostExtensions.BindDocument(JetBrains.RdBackend.Common.Features.Documents.DocumentHostBase,JetBrains.ProjectModel.IProjectFile,JetBrains.Lifetimes.Lifetime)">
+            <summary>
+            Binds the document with the frontend via the protocol.
+            If the document was not opened in editor - it won't be opened
+            If the document was opened in editor - it will remain opened and the editor will reflect doc changes
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Documents.DocumentHostExtensions.BindDocument(JetBrains.ProjectModel.ISolution,JetBrains.Util.VirtualFileSystemPath,JetBrains.Lifetimes.Lifetime)">
+            <summary>
+            Binds the document with the frontend via the protocol.
+            If the document was not opened in editor - it won't be opened
+            If the document was opened in editor - it will remain opened and the editor will reflect doc changes
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.FileSystem.DelegateToProtocolHandler.FileStreamNotifyOnClose.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle,System.IO.FileAccess,System.Boolean,JetBrains.Util.ILogger)">
+            <inheritdoc />
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.LiveTemplates.RiderLiveTemplateHighlightersCreator">
+            <summary>
+            We need to create special highlighters for live templates, because we want them to be left/right greedy.
+            If live template highlighters are not fully greedy, then it will lead to UI (UX) problems when editing hotspot
+            variable, other highlighters will be lost when deleting all text in variable
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.CustomTools.SingleFileCustomToolExtensions.WriteToDisk(JetBrains.ProjectModel.ISolution,System.Collections.Generic.List{JetBrains.Util.VirtualFileSystemPath},System.Collections.Generic.List{System.String},System.ValueTuple{JetBrains.Util.VirtualFileSystemPath,System.String}[])">
+            <summary>
+            Writes content to corresponding paths if possible
+            Fills affected path list (which was written successfully) and error list 
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.ProjectModel.CustomTools.ISingleFileCustomToolExecutionResult.AffectedFiles">
+            <summary>
+            Affected files in the file system which IDEA has to refresh in the VFS
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.ProjectModel.CustomTools.ISingleFileCustomToolExecutionResult.Errors">
+            <summary>
+            Errors from generator
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.CustomTools.ISingleFileCustomToolExecutionResult.PostProcess">
+            <summary>
+            Will be executed on UI thread after generator executed successfully
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.Diagnostic.NetFrameworkAnalyzer.IsInvalidClientProfile(JetBrains.Util.Dotnet.TargetFrameworkIds.TargetFrameworkId)">
+            <summary>
+            Special case for Client profile, see RIDER-27431
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.Editing.HostProjectModelEditorOperations.CleanupMiscProjectFilesIfNeeded(JetBrains.ProjectModel.IProjectFolder,JetBrains.Util.VirtualFileSystemPath)">
+            <summary>
+            Remove existing misc file for the same physical file, we do not need it anymore
+            In R# case Visual Studio manages misc files so there is no such magic there
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.Editing.HostProjectModelEditorOperations.GetUnitedProjectItems(JetBrains.ProjectModel.IProjectItem)">
+            <summary>
+            Sometimes a project file is exists only because of another project file. Example from dotnet6:
+            [Content] Page.txt
+            [AdditionalFiles] Page.txt
+            In this case we should not try to change project file for the second file, just adjust R# project model
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.Editing.IReloadProjectOnChangePolicy">
+            <summary>
+            An extension which allows to specify a rule to reload a project after changes inside made by R# engine
+             (ProjectModelEditor and friends)
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.Editing.IReloadProjectOnChangePolicy.ShouldReload(JetBrains.ProjectModel.IProjectItem)">
+            <summary>
+            Returns true if project should be reloaded after add/remove/rename change of specified project file
+            </summary>
+        </member>
+        <member name="F:JetBrains.RdBackend.Common.Features.ProjectModel.FileNesting.FileNestingHost.Rules">
+            <summary>
+            Child -> Parent suffix rule tree
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.FileNesting.IDependsUponExtension">
+            <summary>
+            Extension point which allows to override default depends upon logic for any project file
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.BindingRedirectManager">
+            <summary>
+              Class that manages the binding redirect config section
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.BindingRedirectResolver.GetBindingRedirects(System.Collections.Generic.IEnumerable{JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.IAssembly})">
+            <summary>
+              Returns a list of assemblies that need binding redirects.
+            </summary>
+            <param name="assemblies">List assemblies to analyze for binding redirects</param>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.BindingRedirectResolver.GetUniqueKey(JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.IAssembly)">
+            <summary>
+              Returns the key for an assembly (name, public key)
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.NuGet.Runtime.RemoteAssembly">
+            <summary>
+              IAssembly implementation that is used for marshalling information across app domains.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.ProjectTemplates.IProjectTemplateFormatPolicy.ShouldReformat(JetBrains.ProjectModel.IProjectFile)">
+            <summary>
+            Allows to control automatic project files reformat after solution/project creation
+            True means reformat is required
+            False means reformat is forbidden
+            Null is used to skip this policy for this project file
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.ProjectTemplates.IProjectTemplatePostProcessParameter">
+            <summary>
+            Allows to transfer some data (as string parameters) from project templates into solution/project post processing
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.RiderSolutionLoadStateMonitor">
+            <summary>
+            Just a wrapper around some events of solution/project model caches loading
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.SharedProjects.ISharedProjectOperations.GetProjectItemInSharedProjects(JetBrains.ProjectModel.IProjectItem)">
+            <summary>
+            Returns a corresponding project items from referenced shared projects.
+            </summary>
+            <param name="projectItem">Any project item</param>
+            <returns>List of project items sharing the same location including the argument in referenced shared projects.</returns>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.SharedProjects.ISharedProjectOperations.GetOrCreateParentSharedFoldersInReferencedProjects(JetBrains.ProjectModel.IProjectFolder)">
+            <summary>
+            Gets or creates a corresponding project folder from each referenced project.
+            </summary>
+            <param name="projectFolder">Project folder from a shared project</param>
+            <returns>List of project folders sharing the same location from referenced projects.</returns>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.SharedProjects.ISharedProjectOperations.GetSharedProjectItemsInReferencedProjects(JetBrains.ProjectModel.IProjectItem)">
+            <summary>
+            Returns a corresponding project items from referenced projects.
+            </summary>
+            <param name="projectItem">Project item from a shared project</param>
+            <returns>List of project items sharing the same location from referenced projects.</returns>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.View.EditProperties.Projects.IEditProjectPropertiesPreserver.Save">
+            <summary>
+            Save settings somewhere, result means should we reload project or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.ProjectModel.View.EditProperties.Projects.MsBuild.IMsBuildPreserver">
+            <summary>
+            Component to manage custom preserve logic for msbuild projects
+            Can be used to cache data during 'edit properties' session
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.View.EditProperties.Projects.MsBuild.Providers.ConfigurationTabProvider.AddDefineConstantItems(JetBrains.Rider.Model.RdEditPropertySection,System.Collections.Generic.Dictionary{System.String,JetBrains.Platform.MsBuildHost.Models.RdCalculateProperty})">
+            <summary>
+            Special case for .net core define constants, see RIDER-27681
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.View.EditProperties.Projects.MsBuild.Providers.ConfigurationTabProvider.GetSpecialOutputPathValue(System.Collections.Generic.Dictionary{System.String,JetBrains.Platform.MsBuildHost.Models.RdCalculateProperty})">
+            <summary>
+            Special case for .net core output path, see RIDER-20716
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.View.EditProperties.Utils.EditPropertyItemBuilder.CreateFrom``2(System.Collections.Generic.IReadOnlyCollection{``0},System.Func{``0,``1},System.Func{``1,JetBrains.Rider.Model.RdEditPropertyItem},System.Func{System.Collections.Generic.HashSet{``1},JetBrains.Rider.Model.RdEditPropertyItem})">
+            <summary>
+            This helper functions looks terrible, but if fact it takes a list of selected project items and tries to extract
+            specific information from them.
+            If this information are the same for all items (or we have just a single item), it invokes `uniqueDataFunc` to produce regular editable item
+            If there are different information we have to show, it invokes `multipleDataFunc` to produce another control for different values
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.ProjectModel.View.Ordering.OrderingContextProvider.CreateOrderingContext(System.Collections.Generic.IReadOnlyCollection{System.Object},System.Collections.Generic.IReadOnlyCollection{System.Object},JetBrains.ProjectModel.ProjectsHost.RelativeToType)">
+            <summary>
+            Create an context to order project items in the project
+            </summary>
+            <param name="modifiedItems">Modified item (collection of different objects for the same project item), can be empty</param>
+            <param name="relativeToItems">Reference item (collection of different objects for the same project item), not empty</param>
+            <param name="relativeToType">Type of relation</param>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Refactorings.Inplace.RiderInplaceRefactoringsHighlightingManager.RemoveAndForbidHighlighter">
+            <summary>
+            In Rider during live templates execution when using tab for going to the next hotspot, frontend engine replaces
+            current hotspot text to "" and then returns it back to the text which was before ("int" -> "" -> "int"), this happens
+            because sometimes we there is a lookup and pressing tab causes to complete item from lookup, and when completing
+            item with lookup it performs this logic.
+            This leads to arising document changes which are in turn are handled by <see cref="T:JetBrains.ReSharper.InplaceRefactorings.FileEditHandler"/> and
+            <see cref="T:JetBrains.ReSharper.InplaceRefactorings.FileEditHandler"/> creates highlighters for inplace refactorings. One more thing is that in
+            <see cref="M:JetBrains.ReSharper.InplaceRefactorings.FileEditHandler.GetRefactoringInfo"/> the method to update highlighter is called, and
+            <see cref="M:JetBrains.ReSharper.InplaceRefactorings.FileEditHandler.GetRefactoringInfo"/> is called during bulb items calculation, so this highlighter
+            will be set again movement of a caret, if we just remove it. That is why after completing live template in created
+            method from usage for instance, this highlighter will not be removed and will stay until any other document change occurs.
+            So it is better to remove and forbid appearance of this highlighter during live template execution for each
+            hotspot after it was changed. See RIDER-71722
+            </summary>
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Services.RiderBulbMenuComponent.IsSuppressingMenuCaption">
+            <inheritdoc />
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Services.RiderJetPopupMenus">
+            <summary>
+              It's silent version of JetPopupMenus, which constructs proxy menus for interacting by protocol.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Services.RiderMainWindowPopupWindowContext">
+            <summary>
+            All contexts that're created via DataRules is marked as originated from data context.
+            Others that're created via methods invocations are main window centered, because a client intends to create a customized context.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Services.RiderMainWindowPopupWindowContext.GetSourceCore">
+            <inheritdoc />
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Settings.IdeaRegistry">
+            <summary>
+            Provides access to IDEA platform registry keys which starts with "rider." prefix
+            Filled on startup and updated when values are changed on IDEA side
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Settings.IdeaSettingsInterop.MountPoints.IdeaSettingsMountPoint">
+            <summary>
+            These settings are stored on IJ side. We just override r# temporarily, because we use idea options
+            and can't determine a correct layer to save.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Settings.IdeaSettingsInterop.RiderHiddenOptions">
+            Component for disabling changes for some settings in Rider.
+            This can be used for example if a setting stands for enabling functionality which also provided by VS so it's up to user to choose.
+            Turning such a setting off in Rider would leave a feature disabled with no alternative provided.
+        </member>
+        <member name="P:JetBrains.RdBackend.Common.Features.Settings.ISettingsDialogEvents.OnSave">
+            <summary>
+            Fires an event when fronted settings dialog was closed by pressing 'save' button
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.HostTextControlCoordinateConversion.Screen_To_Viewport(JetBrains.Util.Media.JetPhysicalPoint)">
+            <summary>
+            Helper conversion for deriving screen conversions from canvas ones.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.HostTextControlCoordinateConversion.Viewport_To_Screen(JetBrains.Util.Media.JetPhysicalPoint)">
+            <summary>
+            Helper conversion for deriving screen conversions from canvas ones.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.ITextControlHost.CreateTextControlId(JetBrains.ProjectModel.IProjectItem,JetBrains.Rider.Model.TextControlLocation)">
+            <summary>
+            creates a text control id for the specified file that will open it in a new tab
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.ITextControlHost.Bind(JetBrains.Rider.Model.TextControlId,JetBrains.ProjectModel.IProjectFile,System.Boolean)">
+            <summary>
+            Binding with model is just the starting point of handling textControl. 
+            Hence the new backend textControl will be created and registered automatically afterwards
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.RiderEditorManager.TryFindTextControlForFile(JetBrains.ProjectModel.IProjectModelElement)">
+            <summary>
+            Looks if there's a text control for the given file currently open.
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.TextControlHost.Bind(JetBrains.Rider.Model.TextControlId,JetBrains.ProjectModel.IProjectFile,System.Boolean)">
+            <summary>
+            Binding with model is just the starting point of handling textControl. 
+            Hence the new backend textControl will be created and registered automatically afterwards
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.TextControlHost.CreateTextControlId(JetBrains.ProjectModel.IProjectItem,JetBrains.Rider.Model.TextControlLocation)">
+            <summary>
+            creates a text control id for the specified file that will open it in a new tab
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.TextControlModelIdUtil.CreateDefaultTextControlId(JetBrains.ProjectModel.IProjectItem,JetBrains.Rider.Model.TextControlLocation)">
+            <summary>
+            creates a text control id for the specified project file opened in default tab
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.TextControls.TextControlModelIdUtil.CreateDefaultTextControlId(JetBrains.Util.VirtualFileSystemPath,JetBrains.Rider.Model.TextControlLocation,JetBrains.ProjectModel.ISolution)">
+            <summary>
+            creates a text control id for the specified fsp opened in default tab
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.TextControls.TrackAnyHostTextControlCaretAndSelection">
+            <summary>
+            Connects to the hosting IDE and tracks document modifications related to out project files.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Themes.RiderPsiSymbolIconThemeSettingsLoader">
+            <summary>
+            Loads and publishes as the theme aspect the psi symbol icon theme settings.
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Themes.RiderThemedIconSettingsLoader">
+            <summary>
+            Select default icon theme
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Toolset.IRiderSolutionToolsetListener.ToolsetCalculationScheduled">
+            <summary>
+            Can be called on any thread. It is guaranteed that for each scheduled calculation it will be started and finished
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Toolset.IRiderSolutionToolsetListener.ToolsetCalculationStarted">
+            <summary>
+            Called on main thread. <c>ToolsetCalculationScheduled</c> will always be called before <c>ToolsetCalculationStarted</c>
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Toolset.IRiderSolutionToolsetListener.ToolsetCalculationFinished">
+            <summary>
+            Called on main thread
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Toolset.RiderApplicationRuntime">
+            <summary>
+            This component should be use only when solution instance not available.
+            If you have <see cref="T:JetBrains.ProjectModel.ISolution"/> you should use <see cref="T:JetBrains.RdBackend.Common.Features.Toolset.RiderSolutionToolset"/>
+            </summary>
+        </member>
+        <member name="T:JetBrains.RdBackend.Common.Features.Toolset.RiderSolutionToolset">
+            <summary>
+            This component contains toolset which use for LoadSolution.
+            BuildTool, Mono, .NET CLI it connected components for that reason it should change simultaneously.
+            If you want to receive a change notification, subscribe on <see cref="P:JetBrains.RdBackend.Common.Features.Toolset.RiderSolutionToolset.Changed"/> signal.
+            If you want to ask to refresh toolset from setting, fire <see cref="M:JetBrains.RdBackend.Common.Features.Toolset.RiderSolutionToolset.Refresh"/> signal.
+            If you need Mono or .NET CLI settings when <see cref="T:JetBrains.ProjectModel.ISolution"/> not available use <see cref="T:JetBrains.RdBackend.Common.Features.Toolset.RiderApplicationRuntime"/>
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Util.CertificateUtil.ToCapiPrivateKeyBlob(System.Security.Cryptography.RSAParameters)">
+            <summary>
+            https://github.com/mono/mono/blob/55a34261c9af13f9a223920f111005d39e7a3d9e/mcs/class/Mono.Security/Mono.Security.Cryptography/CryptoConvert.cs#L305
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Util.Tree.RiderAbstractTreeHost`4.ShouldUpdateWithParents(`2)">
+            <summary>
+            Tells tree to update all parents of the element even if the element was not changed during update
+            Can be used to refresh tree in case when the node affects parent's presentations
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Util.Tree.RiderTreeNode`3.GetValues">
+            <summary>
+            Returns all values associated to the node, allocates a container for enumerable
+            Use '<see cref="P:JetBrains.RdBackend.Common.Features.Util.Tree.RiderTreeNode`3.ValuesCount"/>' and '<see cref="M:JetBrains.RdBackend.Common.Features.Util.Tree.RiderTreeNode`3.GetValueAt(System.Int32)"/>' to access values without boxing
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Util.Tree.RiderTreeNode`3.GetValue``1">
+            <summary>
+            Returns value of specified type if any
+            </summary>
+        </member>
+        <member name="M:JetBrains.RdBackend.Common.Features.Util.Tree.RiderTreeNode`3.HasValue``1">
+            <summary>
+            Returns true if value with specified type exists in the node
+            </summary>
+        </member>
+    </members>
+</doc>

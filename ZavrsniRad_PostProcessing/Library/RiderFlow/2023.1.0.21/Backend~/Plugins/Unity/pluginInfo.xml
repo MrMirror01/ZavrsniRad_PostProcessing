@@ -1,0 +1,10 @@
+	<PluginInfo
+		Version="2023.1.0.21"
+		BuiltOn="2023-02-24 21:39:34"
+		CompanyNameHuman="com.intellij.resharper"
+		SubplatformName="unity">
+		<PackageFile RelativePath="JetBrains.ReSharper.Plugins.Unity.dll" AssemblyName="*"/>
+		<PackageFile RelativePath="JetBrains.ReSharper.Plugins.Yaml.dll" AssemblyName="*"/>
+		<PackageFile RelativePath="JetBrains.ReSharper.Plugins.Json.dll" AssemblyName="*"/>
+		<PackageFile RelativePath="JetBrains.ReSharper.Plugins.Unity.RiderFlow.dll" AssemblyName="*"/>
+	</PluginInfo>
