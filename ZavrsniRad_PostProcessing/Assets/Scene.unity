@@ -476,7 +476,7 @@ MonoBehaviour:
     active: 0
     shader: {fileID: 4800000, guid: aa1b5ed5ac667f647abe0fbbc0468e70, type: 3}
     swipe: 1
-    thickness: 3
+    thickness: 2
     depthFactor: 670
     sharpness: 7.42
   blur:
@@ -493,24 +493,35 @@ MonoBehaviour:
     active: 1
     shader: {fileID: 4800000, guid: 44ea0752c1c360b4ab6b01e1f0b9c845, type: 3}
     swipe: 1
-    iterations: 5
-    intensity: 0.65
+    iterations: 7
+    intensity: 0.41
     threshold: 1.5
-    softThreshold: 0.289
+    softThreshold: 0.31
     debug: 0
+  toneMapping:
+    active: 1
+    shader: {fileID: 4800000, guid: 2bed04d27afc0ed41a68494a01ed8c17, type: 3}
+    swipe: 1
+    whitePoint: 1.4
   colorCorrection:
-    active: 0
+    active: 1
     shader: {fileID: 4800000, guid: 7bf0e37172730dc41bf249000ff2fabf, type: 3}
     swipe: 1
     brightness: 0
-    contrast: 1
-    saturation: 1
+    contrast: 1.08
+    saturation: 1.336
     gamma: 2.2
+  chromaticAborration:
+    active: 0
+    shader: {fileID: 4800000, guid: b97a843fe2a1bfd4f92ea6275f63a7a7, type: 3}
+    swipe: 1
+    offsetDirection: {x: 1, y: 1}
+    offsetAmount: 0.023
   filmGrain:
     active: 0
     shader: {fileID: 4800000, guid: 19db7b8acea30344989b744552e549c7, type: 3}
     swipe: 1
-    intensity: 0.188
+    intensity: 0.221
 --- !u!1001 &950240405
 PrefabInstance:
   m_ObjectHideFlags: 0

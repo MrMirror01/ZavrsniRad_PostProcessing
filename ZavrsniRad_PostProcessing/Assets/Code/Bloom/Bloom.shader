@@ -127,12 +127,9 @@ Shader "Hidden/Bloom"
                 //sampleing from source texture for 'custom' additive blending
                 half4 col = tex2D(_SourceTex, IN.uv);
                 if (_Swipe < IN.uv.x) return col;
-
                 col.rgb += _Intensity * SampleBox(IN.uv, 0.5);
-                //float lum = 0.2126 * col.r + 0.7152 * col.g + 0.0722 * col.b; //luminance of pixel
-                //half3 tonemappedLuminance = lum * (1 + (lum / (_WhitePoint * _WhitePoint))) / (1 + lum); //tone mapping
 
-                return half4(col.rgb/* * (tonemappedLuminance / lum)*/, 1);
+                return half4(col.rgb, 1);
             }
             ENDCG
         }

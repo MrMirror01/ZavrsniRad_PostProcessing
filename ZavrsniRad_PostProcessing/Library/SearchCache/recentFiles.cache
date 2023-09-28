@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/ThickOutlines/ThickOutlines.shader
-  - Assets/Code/ThickOutlines/ThickOutlines.cs
-  - Assets/Code/FilmGrain/FilmGrain.cs
-  - Assets/Code/FilmGrain/FilmGrain.shader
   - Assets/Code/ColorCorrection/ColorCorrection.cs
   - Assets/Code/ColorCorrection/ColorCorrection.shader
-  - Assets/Code/PostProcessingDriver.cs
   - Assets/Code/Bloom/Bloom.shader
   - Assets/Code/Tonemapping/Tonemapping.cs
   - Assets/Code/Bloom/Bloom.cs
+  - Assets/Code/Tonemapping/ToneMapping.cs
+  - Assets/Code/PostProcessingDriver.cs
+  - Assets/Code/ToneMapping/ToneMapping.shader
+  - Assets/Code/ChromaticAborration/ChromaticAborration.shader
+  - Assets/Code/ChromaticAborration/ChromaticAborration.cs
