@@ -47,10 +47,15 @@ Shader "Hidden/Sharpen"
             Name "BoxSharpen"
 
             CGPROGRAM
-            static const float kernel[9] = {
+            /*static const float kernel[9] = {
                 -1, -1, -1,
                 -1, 9, -1,
                 -1, -1, -1
+            };*/
+            static const float kernel[9] = {
+                0, -1, 0,
+                -1, 5, -1,
+                0, -1, 0
             };
 
             fixed3 getSharpenColor(float2 uv){

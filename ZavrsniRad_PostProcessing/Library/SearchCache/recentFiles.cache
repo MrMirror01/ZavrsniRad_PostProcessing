@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/Blur/BoxBlur.cs
-  - Assets/Code/Blur/BlurParameters.cs
-  - Assets/Code/Blur/BoxBlur.shader
-  - Assets/Code/Blur/Blur.cs
-  - Assets/Code/Blur/Blur.shader
-  - Assets/Code/Sharpen/Sharpen.cs
+  - Assets/Code/ThickOutlines/ThickOutlines.shader
+  - Assets/Code/ThickOutlines/ThickOutlines.cs
+  - Assets/Code/FilmGrain/FilmGrain.cs
+  - Assets/Code/FilmGrain/FilmGrain.shader
+  - Assets/Code/ColorCorrection/ColorCorrection.cs
+  - Assets/Code/ColorCorrection/ColorCorrection.shader
   - Assets/Code/PostProcessingDriver.cs
-  - Assets/Code/EffectParameter.cs
-  - Assets/Code/Sharpen/SharpenParameters.cs
-  - Assets/Code/Sharpen/Sharpen.shader
+  - Assets/Code/Bloom/Bloom.shader
+  - Assets/Code/Tonemapping/Tonemapping.cs
+  - Assets/Code/Bloom/Bloom.cs

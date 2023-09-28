@@ -1,19 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sharpen
+[Serializable]
+public class Sharpen : Effect
 {
-	public static RenderTexture applyEffect(RenderTexture tex, SharpenParameters parameters)
+	public override void apply(RenderTexture tex)
 	{
-		Material mat = new Material(parameters.shader);
-		mat.SetFloat("_Swipe", parameters.swipe);
-
-		for (int i = 0; i < parameters.iterations; i++)
+		if (mat == null)
 		{
-			Graphics.Blit(tex, tex, mat);
+			mat = new Material(shader);
+			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
+		mat.SetFloat("_Swipe", swipe);
 
-		return tex;
+		Graphics.Blit(tex, tex, mat);
 	}
 }

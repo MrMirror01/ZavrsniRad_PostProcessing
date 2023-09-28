@@ -1,0 +1,83 @@
+﻿18:42:33.334 |I| Core                           | RequestBuilder thread:8        | MsBuild process with Id = 21432
+18:42:33.336 |I| Core                           | RequestBuilder thread:8        | MsBuild location = C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe
+18:42:33.336 |I| Core                           | RequestBuilder thread:8        | ServerGC = False
+18:42:33.336 |I| Core                           | RequestBuilder thread:8        | 
+18:42:33.336 |I| Core                           | RequestBuilder thread:8        | Start ControllerTask...
+18:42:33.337 |I| Core                           | RequestBuilder thread:8        | Detected version: 17.5
+18:42:33.338 |I| Core                           | RequestBuilder thread:8        | Creating SocketWire with port = 51355
+18:42:33.360 |I| Core                           | RequestBuilder thread:8        | Create protocol...
+18:42:33.428 |I| Core                           | RequestBuilder thread:8        | Create MsBuildModel and advise for new sessions...
+18:42:33.460 |I| Core                           | RequestBuilder thread:8        | Subscribe for changes...
+18:42:33.461 |I| Core                           | RequestBuilder thread:8        | Setup process watchdog...
+18:42:33.464 |I| Core                           | RequestBuilder thread:8        | Run dispatcher...
+18:42:33.468 |I| ProcessWatchdog                | WatchParentPid:16168:12        | Monitoring parent process PID:16168
+18:42:33.544 |I| Core                           | RequestBuilder thread:8        | Get protocol session 'RdProjectModelSession'
+18:42:33.548 |I| Core                           | RequestBuilder thread:8        | Msbuild session 'ProjectModelSessionHost' created
+18:42:33.613 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading 2 project(s) in 6 node(s)...
+18:42:33.614 |I| ProjectModel                   | RequestBuilder thread:8        | Reason: WarmStartup
+18:42:33.618 |I| Build                          | MSBuild LoggingService events queue pump: 30619839:14 | Build started.
+18:42:33.623 |I| BuildQueue                     | RequestBuilder thread:8        | Build queue: False
+18:42:33.801 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'Assembly-CSharp.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+18:42:33.804 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: Assembly-CSharp.csproj
+18:42:33.806 |I| Build                          | RequestBuilder thread:8        | Start build 'Assembly-CSharp.csproj' with 1 target frameworks
+18:42:33.809 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+18:42:33.812 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'JetBrains.Frontend.2022.2.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+18:42:33.813 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: JetBrains.Frontend.2022.2.csproj
+18:42:33.813 |I| Build                          | RequestBuilder thread:8        | Start build 'JetBrains.Frontend.2022.2.csproj' with 1 target frameworks
+18:42:33.814 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+18:42:34.214 |I| Build                          | :4                             | Finish build part [1/1] for project 'Assembly-CSharp.csproj': Success
+18:42:34.214 |I| Build                          | :4                             | Finish build project 'Assembly-CSharp.csproj': Success
+18:42:34.430 |I| Build                          | :7                             | Finish build part [1/1] for project 'JetBrains.Frontend.2022.2.csproj': Success
+18:42:34.430 |I| Build                          | :7                             | Finish build project 'JetBrains.Frontend.2022.2.csproj': Success
+18:42:39.979 |I| Build                          | MSBuild LoggingService events queue pump: 30619839:14 | Build succeeded.
+18:42:39.979 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading has finished, statistic: 
+	Total: 6.36 sec
+	Binding: 0.06 sec
+	Evaluation: 0.24 sec
+18:46:04.170 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading 1 project(s) in 6 node(s)...
+18:46:04.170 |I| ProjectModel                   | RequestBuilder thread:8        | Reason: Sync
+18:46:04.171 |I| Build                          | MSBuild LoggingService events queue pump: 26316657:19 | Build started.
+18:46:04.173 |I| BuildQueue                     | RequestBuilder thread:8        | Build queue: False
+18:46:04.228 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'Assembly-CSharp.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+18:46:04.228 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: Assembly-CSharp.csproj
+18:46:04.228 |I| Build                          | RequestBuilder thread:8        | Start build 'Assembly-CSharp.csproj' with 1 target frameworks
+18:46:04.228 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+18:46:04.373 |I| Build                          | :7                             | Finish build part [1/1] for project 'Assembly-CSharp.csproj': Success
+18:46:04.373 |I| Build                          | :7                             | Finish build project 'Assembly-CSharp.csproj': Success
+18:46:04.395 |I| Build                          | MSBuild LoggingService events queue pump: 26316657:19 | Build succeeded.
+18:46:04.399 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading has finished, statistic: 
+	Total: 0.23 sec
+	Binding: 0.01 sec
+	Evaluation: 0.05 sec
+18:50:15.789 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading 1 project(s) in 6 node(s)...
+18:50:15.789 |I| ProjectModel                   | RequestBuilder thread:8        | Reason: Sync
+18:50:15.790 |I| Build                          | MSBuild LoggingService events queue pump: 55816553:21 | Build started.
+18:50:15.790 |I| BuildQueue                     | RequestBuilder thread:8        | Build queue: False
+18:50:15.822 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'Assembly-CSharp.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+18:50:15.822 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: Assembly-CSharp.csproj
+18:50:15.822 |I| Build                          | RequestBuilder thread:8        | Start build 'Assembly-CSharp.csproj' with 1 target frameworks
+18:50:15.823 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+18:50:15.923 |I| Build                          | :16                            | Finish build part [1/1] for project 'Assembly-CSharp.csproj': Success
+18:50:15.923 |I| Build                          | :16                            | Finish build project 'Assembly-CSharp.csproj': Success
+18:50:15.946 |I| Build                          | MSBuild LoggingService events queue pump: 55816553:21 | Build succeeded.
+18:50:15.946 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading has finished, statistic: 
+	Total: 0.16 sec
+	Binding: 0.00 sec
+	Evaluation: 0.03 sec
+19:13:29.113 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading 1 project(s) in 6 node(s)...
+19:13:29.113 |I| ProjectModel                   | RequestBuilder thread:8        | Reason: Sync
+19:13:29.114 |I| Build                          | MSBuild LoggingService events queue pump: 33533545:19 | Build started.
+19:13:29.114 |I| BuildQueue                     | RequestBuilder thread:8        | Build queue: False
+19:13:29.162 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'Assembly-CSharp.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+19:13:29.162 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: Assembly-CSharp.csproj
+19:13:29.162 |I| Build                          | RequestBuilder thread:8        | Start build 'Assembly-CSharp.csproj' with 1 target frameworks
+19:13:29.163 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+19:13:29.286 |I| Build                          | :5                             | Finish build part [1/1] for project 'Assembly-CSharp.csproj': Success
+19:13:29.286 |I| Build                          | :5                             | Finish build project 'Assembly-CSharp.csproj': Success
+19:13:29.312 |I| Build                          | MSBuild LoggingService events queue pump: 33533545:19 | Build succeeded.
+19:13:29.313 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading has finished, statistic: 
+	Total: 0.20 sec
+	Binding: 0.00 sec
+	Evaluation: 0.05 sec
+19:20:02.582 |I| Core                           | RequestBuilder thread:8        | Msbuild session 'ProjectModelSessionHost' was terminated
+19:20:02.584 |I| Core                           | RequestBuilder thread:8        | Connection lost, kill msbuild

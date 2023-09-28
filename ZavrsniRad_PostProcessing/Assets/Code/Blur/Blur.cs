@@ -1,24 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor.EditorTools;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEditor;
 
-public static class Blur
+[Serializable]
+public class Blur : Effect
 {
-	public static RenderTexture applyEffect(RenderTexture tex, BlurParameters parameters)
-	{
-		Material mat = new Material(parameters.shader);
-		mat.SetFloat("_Swipe", parameters.swipe);
+    public enum BlurType
+    {
+        BoxBlur = 0,
+        WeightedByDistance = 1,
+        GaussianBlur = 2,
+        OptimisedGaussianBlur = 3,
+    }
 
-		for (int i = 0; i < parameters.iterations; i++)
+    public BlurType type;
+    [Range(1, 25)]
+    public int iterations = 1;
+
+	public override void apply(RenderTexture tex)
+	{
+		if (mat == null)
 		{
-			Graphics.Blit(tex, tex, mat, (int)parameters.type);
-			if (parameters.type == BlurParameters.BlurType.OptimisedGaussianBlur)
-				Graphics.Blit(tex, tex, mat, (int)parameters.type + 1); //drugi pass
+			mat = new Material(shader);
+			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
-		
-		return tex;
+		mat.SetFloat("_Swipe", swipe);
+
+		for (int i = 0; i < iterations; i++)
+		{
+			Graphics.Blit(tex, tex, mat, (int)type);
+			if (type == BlurType.OptimisedGaussianBlur)
+				Graphics.Blit(tex, tex, mat, (int)type + 1); //drugi pass
+		}
 	}
 }
