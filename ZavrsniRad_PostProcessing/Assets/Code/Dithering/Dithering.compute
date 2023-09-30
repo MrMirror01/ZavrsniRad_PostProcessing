@@ -1,0 +1,115 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel BlackAndWhite4x4
+#pragma kernel BlackAndWhite8x8
+#pragma kernel Colored4x4
+#pragma kernel Colored8x8
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+Texture2D<float4> Source;
+RWTexture2D<float4> Result;
+
+groupshared float groupSum = 0.0;
+
+static const float ditherMap8x8[64] = { 0, 32, 8, 40, 2, 34, 10, 42, 48, 16, 56, 24, 50, 18, 58, 26, 12, 44, 4, 36, 14, 46, 6, 38, 60, 28, 52, 20, 62, 30, 54, 22, 3, 35, 11, 43, 1, 33, 9, 41, 51, 19, 59, 27, 49, 17, 57, 25, 15, 47, 7, 39, 13, 45, 5, 37, 63, 31, 55, 23, 61, 29, 53, 21 };
+static const float ditherMap4x4[16] = { 0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5 };
+
+[numthreads(4, 4, 1)]
+void BlackAndWhite4x4(uint3 id : SV_DispatchThreadID)
+{
+    uint2 ditherPos = uint2(id.x % 4, id.y % 4);
+    if (ditherPos.x == 0 && ditherPos.y == 0)
+    {
+        float sum = 0.0;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                float3 col = Source[id.xy + uint2(i, j)].rgb;
+                sum += dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance
+            }
+        }
+        groupSum = sum;
+    }
+    GroupMemoryBarrierWithGroupSync();
+    
+    if (ditherMap4x4[ditherPos.x * 4 + ditherPos.y] < groupSum)
+        Result[id.xy] = float4(1.0, 1.0, 1.0, 1.0);
+    else
+        Result[id.xy] = float4(0.0, 0.0, 0.0, 1.0);
+}
+
+[numthreads(8, 8, 1)]
+void BlackAndWhite8x8(uint3 id : SV_DispatchThreadID)
+{
+    uint2 ditherPos = uint2(id.x % 8, id.y % 8);
+    if (ditherPos.x == 0 && ditherPos.y == 0)
+    {
+        float sum = 0.0;
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                float3 col = Source[id.xy + uint2(i, j)].rgb;
+                sum += dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance
+            }
+        }
+        groupSum = sum;
+    }
+    GroupMemoryBarrierWithGroupSync();
+    
+    if (ditherMap8x8[ditherPos.x * 8 + ditherPos.y] < groupSum)
+        Result[id.xy] = float4(1.0, 1.0, 1.0, 1.0);
+    else
+        Result[id.xy] = float4(0.0, 0.0, 0.0, 1.0);
+}
+
+[numthreads(4, 4, 1)]
+void Colored4x4(uint3 id : SV_DispatchThreadID)
+{
+    uint2 ditherPos = uint2(id.x % 4, id.y % 4);
+    if (ditherPos.x == 0 && ditherPos.y == 0)
+    {
+        float sum = 0.0;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                float3 col = Source[id.xy + uint2(i, j)].rgb;
+                sum += dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance
+            }
+        }
+        groupSum = sum;
+    }
+    GroupMemoryBarrierWithGroupSync();
+    
+    if (ditherMap4x4[ditherPos.x * 4 + ditherPos.y] < groupSum)
+        Result[id.xy] = saturate(Source[id.xy] + 0.5);
+    else
+        Result[id.xy] = saturate(Source[id.xy] - 0.5);
+}
+
+[numthreads(8, 8, 1)]
+void Colored8x8(uint3 id : SV_DispatchThreadID)
+{
+    uint2 ditherPos = uint2(id.x % 8, id.y % 8);
+    if (ditherPos.x == 0 && ditherPos.y == 0)
+    {
+        float sum = 0.0;
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                float3 col = Source[id.xy + uint2(i, j)].rgb;
+                sum += dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance
+            }
+        }
+        groupSum = sum;
+    }
+    GroupMemoryBarrierWithGroupSync();
+    
+    if (ditherMap8x8[ditherPos.x * 8 + ditherPos.y] < groupSum)
+        Result[id.xy] = saturate(Source[id.xy] + 0.5);
+    else
+        Result[id.xy] = saturate(Source[id.xy] - 0.5);
+}

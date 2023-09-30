@@ -1,4 +1,4 @@
-Shader "Custom/FilmGrain"
+Shader "Hidden/FilmGrain"
 {
     Properties
     {

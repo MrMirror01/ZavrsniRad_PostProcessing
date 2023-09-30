@@ -13,7 +13,7 @@ public class FilmGrain : Effect
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/FilmGrain"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);

@@ -7,14 +7,14 @@ using UnityEngine;
 public class ChromaticAborration : Effect
 {
 	public Vector2 offsetDirection;
-	[Range(0f, 0.1f)]
+	[Range(0f, .1f)]
 	public float offsetAmount;
 
 	public override void apply(RenderTexture tex)
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/ChromaticAborration"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);

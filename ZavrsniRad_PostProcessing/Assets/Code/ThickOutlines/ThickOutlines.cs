@@ -17,7 +17,7 @@ public class ThickOutlines : Effect
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/ThickOutlines"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);

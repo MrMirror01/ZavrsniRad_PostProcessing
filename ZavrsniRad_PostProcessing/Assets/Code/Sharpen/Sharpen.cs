@@ -10,7 +10,7 @@ public class Sharpen : Effect
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/Sharpen"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);

@@ -24,7 +24,7 @@ public class Blur : Effect
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/Blur"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);

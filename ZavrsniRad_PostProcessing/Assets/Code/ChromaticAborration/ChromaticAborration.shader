@@ -47,7 +47,7 @@ Shader "Hidden/ChromaticAborration"
                 if (_Swipe < IN.uv.x) return tex2D(_MainTex, IN.uv);
 
                 float2 offset = normalize(_OffsetDirection) * _OffsetAmount;
-                offset *= sqrt(pow(0.5 - IN.uv.x, 2) + pow(0.5 - IN.uv.y, 2)); 
+                offset *= length(IN.uv - 0.5); 
 
                 fixed r = tex2D(_MainTex, IN.uv + offset).r;
                 fixed g = tex2D(_MainTex, IN.uv).g;

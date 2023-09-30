@@ -27,7 +27,7 @@ public class Bloom : Effect
 	{
 		if (mat == null)
 		{
-			mat = new Material(shader);
+			mat = new Material(Shader.Find("Hidden/Bloom"));
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		//calculates the soft knee function for the treshold
