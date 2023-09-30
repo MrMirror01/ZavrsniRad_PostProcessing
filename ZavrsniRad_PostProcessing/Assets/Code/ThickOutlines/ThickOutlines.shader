@@ -63,7 +63,7 @@ Shader "Hidden/ThickOutlines"
 
                 //izracunamo razliku sredisnje vrijednosti okolnih piksela i trenutnog piksela
                 float depthDiff = abs(tex2D(_CameraDepthTexture, IN.uv).r - average);
-                depthDiff *= _DepthFactor; //razliku pomnozimo sa '_DepthFactor' kako bismo odredili osijetljivost
+                depthDiff *= _DepthFactor; // razliku pomnozimo sa '_DepthFactor' kako bismo odredili osijetljivost
                 depthDiff = saturate(depthDiff); //zakljucamo vrijednost u rasponu 0-1
                 depthDiff = pow(depthDiff, _Sharpness); //dobivenu vrijednost potenciramo kako bismo dobili 'ciste' obrube (manje postepenog otpadanja)
 

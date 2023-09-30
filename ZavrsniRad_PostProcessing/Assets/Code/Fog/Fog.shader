@@ -52,7 +52,7 @@ Shader "Hidden/Fog"
                 //_ProjectionParams = {1.0, near, far, 1/far}
                 float near = _ProjectionParams.y;
                 float far = _ProjectionParams.z;
-                float depth = tex2D(_CameraDepthTexture, IN.uv);
+                float depth = 1.0 - tex2D(_CameraDepthTexture, IN.uv);
                 
                 
                 //linerize depth
@@ -61,9 +61,9 @@ Shader "Hidden/Fog"
 
                 depth *= far; //udaljenost od kamere u world space-u
 
-                float fogFactor = saturate((_Density - depth) / (_Density));//pow(2, -pow(depth * _Density, 2));
+                float fogFactor = pow(2, -pow(depth * _Density, 2));
 
-                return lerp(col, _FogColor, fogFactor);
+                return lerp(_FogColor, col, fogFactor);
             }
             ENDCG
         }

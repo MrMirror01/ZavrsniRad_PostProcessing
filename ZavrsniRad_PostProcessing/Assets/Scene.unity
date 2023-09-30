@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250568226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.7, y: 2.481, z: 29.722}
+  m_LocalPosition: {x: 29.18, y: 1.8, z: 30.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -475,13 +475,13 @@ MonoBehaviour:
   thickOutlines:
     active: 0
     swipe: 1
-    thickness: 2
+    thickness: 3
     depthFactor: 670
     sharpness: 7.42
   fog:
-    active: 1
+    active: 0
     swipe: 1
-    density: 0.36
+    density: 0.174
     fogColor: {r: 1, g: 1, b: 1, a: 1}
   blur:
     active: 0
@@ -491,6 +491,12 @@ MonoBehaviour:
   sharpen:
     active: 0
     swipe: 1
+  depthOfField:
+    active: 1
+    swipe: 1
+    distance: 7.7
+    radius: 2.89
+    blurIterations: 25
   bloom:
     active: 0
     swipe: 1
@@ -502,7 +508,8 @@ MonoBehaviour:
   toneMapping:
     active: 0
     swipe: 1
-    whitePoint: 1.4
+    toneMapper: 0
+    whitePoint: 2.67
   dithering:
     active: 0
     swipe: 1

@@ -6,6 +6,13 @@ using UnityEngine;
 [Serializable]
 public class ToneMapping : Effect
 {
+	public enum ToneMapper
+	{
+		ReinhardExtended = 0,
+		Lottes = 1
+	}
+
+	public ToneMapper toneMapper;
 	[Range(1, 10)]
 	public float whitePoint = 1.0f;
 
@@ -19,6 +26,6 @@ public class ToneMapping : Effect
 		mat.SetFloat("_Swipe", swipe);
 		mat.SetFloat("_WhitePoint", whitePoint);
 
-		Graphics.Blit(tex, tex, mat);
+		Graphics.Blit(tex, tex, mat, (int)toneMapper);
 	}
 }

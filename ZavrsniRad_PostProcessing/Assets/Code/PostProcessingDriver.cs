@@ -14,6 +14,8 @@ public class PostProcessingDriver : MonoBehaviour
 	[Space(5)]
     public Sharpen sharpen;
 	[Space(5)]
+	public DepthOfField depthOfField;
+	[Space(5)]
 	public Bloom bloom;
 	[Space(5)]
 	public ToneMapping toneMapping;
@@ -32,6 +34,7 @@ public class PostProcessingDriver : MonoBehaviour
 		if (fog.active) fog.apply(source);
 		if (blur.active) blur.apply(source);
 		if (sharpen.active) sharpen.apply(source);
+		if (depthOfField.active) depthOfField.apply(source);
 		if (bloom.active) bloom.apply(source);
 		if (toneMapping.active) toneMapping.apply(source);
 		if (dithering.active) dithering.apply(source);

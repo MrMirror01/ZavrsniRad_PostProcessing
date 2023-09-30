@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Fog : Effect
 {
+	[Range(0.0f, 1.0f)]
 	public float density;
 	public Color fogColor;
 

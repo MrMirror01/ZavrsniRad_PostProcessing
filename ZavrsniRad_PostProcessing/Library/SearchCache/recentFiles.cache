@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/ChromaticAborration/ChromaticAborration.cs
-  - Assets/Code/ChromaticAborration/ChromaticAborration.shader
-  - Assets/Code/Dithering/Dithering.compute
-  - Assets/Code/Dithering/Dithering.cs
-  - Assets/Code/Swipe.shader
   - Assets/Code/Fog/Fog.cs
-  - Assets/Code/Fog/Fog.shader
   - Assets/NotMine/Fantasy Forest Environment Free Sample/Meshes/Prefabs/grass01.prefab
   - Assets/NotMine/Fantasy Forest Environment Free Sample/StandardNoCulling.shader
   - Assets/NotMine/Fantasy Forest Environment Free Sample/PostProcessing Profile.asset
+  - Assets/Code/Fog/Fog.shader
+  - Assets/Code/ThickOutlines/ThickOutlines.cs
+  - Assets/Code/ToneMapping/ToneMapping.shader
+  - Assets/Code/DepthOfField/DepthOfFIeld.shader
+  - Assets/Code/DepthOfField/DepthOfField.cs
+  - Assets/Code/DepthOfField/DepthOfField.shader

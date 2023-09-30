@@ -9,9 +9,7 @@ Shader "Hidden/ToneMapping"
         // No culling or depth
         Cull Off ZWrite Off ZTest Always
 
-        Pass
-        {
-            CGPROGRAM
+        CGINCLUDE
             #pragma vertex vert
             #pragma fragment frag
 
@@ -39,6 +37,12 @@ Shader "Hidden/ToneMapping"
 
             sampler2D _MainTex;
             float _Swipe;
+        ENDCG
+        
+        Pass{
+            Name "ExtendedReinhard"
+
+            CGPROGRAM
             float _WhitePoint;
 
             fixed4 frag (v2f IN) : SV_Target
@@ -46,10 +50,27 @@ Shader "Hidden/ToneMapping"
                 fixed4 col = tex2D(_MainTex, IN.uv);
                 if (_Swipe < IN.uv.x) return col;
 
-                float lum = 0.2126 * col.r + 0.7152 * col.g + 0.0722 * col.b; //luminance of pixel
+                float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
                 half3 tonemappedLuminance = lum * (1 + (lum / (_WhitePoint * _WhitePoint))) / (1 + lum); //tone mapping
 
-                return half4(col.rgb * (tonemappedLuminance / lum), 1);
+                return fixed4(col.rgb * (tonemappedLuminance / lum), 1);
+            }
+            ENDCG
+        }
+
+        Pass{
+            Name "Lottes"
+
+            CGPROGRAM
+
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
+
+                return fixed4(col.rgb / (1 + lum), 1.0);
             }
             ENDCG
         }
