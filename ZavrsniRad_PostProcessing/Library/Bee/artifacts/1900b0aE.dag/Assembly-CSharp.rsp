@@ -366,6 +366,7 @@
 "Assets/Code/Fog/Fog.cs"
 "Assets/Code/PostProcessingDriver.cs"
 "Assets/Code/Sharpen/Sharpen.cs"
+"Assets/Code/SSAO/ScreenSpaceAmbientOcclusion.cs"
 "Assets/Code/ThickOutlines/ThickOutlines.cs"
 "Assets/Code/ToneMapping/ToneMapping.cs"
 -langversion:9.0

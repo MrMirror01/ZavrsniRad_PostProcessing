@@ -6,6 +6,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PostProcessingDriver : MonoBehaviour
 {
+	public ScreenSpaceAmbientOcclusion screenSpaceAmbientOcclusion;
+	[Space(5)]
 	public ThickOutlines thickOutlines;
 	[Space(5)]
 	public Fog fog;
@@ -28,8 +30,14 @@ public class PostProcessingDriver : MonoBehaviour
 	[Space(5)]
 	public FilmGrain filmGrain;
 
+	private void Start()
+	{
+		//screenSpaceAmbientOcclusion.generateNoiseTexture();
+	}
+
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
+		if (screenSpaceAmbientOcclusion.active) screenSpaceAmbientOcclusion.apply(source);
 		if (thickOutlines.active) thickOutlines.apply(source);
 		if (fog.active) fog.apply(source);
 		if (blur.active) blur.apply(source);

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/Fog/Fog.shader
-  - Assets/Code/ThickOutlines/ThickOutlines.cs
-  - Assets/Code/DepthOfField/DepthOfFIeld.shader
-  - Assets/Code/Blur/Blur.cs
-  - Assets/autofocus.cs
   - Assets/Code/Blur/Blur.shader
   - Assets/Code/ToneMapping/ToneMapping.shader
   - Assets/Code/DepthOfField/DepthOfField.shader
   - Assets/Code/DepthOfField/DepthOfField.cs
   - Assets/Code/Sharpen/Sharpen.shader
+  - Assets/Code/SSAO/ScreenSpaceAmbientOcclusion.cs
+  - Assets/Code/PostProcessingDriver.cs
+  - Assets/Image.png
+  - Assets/Code/SSAO/noise.png
+  - Assets/Code/SSAO/ScreenSpaceAmbientOcclusion.shader

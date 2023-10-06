@@ -473,6 +473,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ff1138b340de49847f6f66f429cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenSpaceAmbientOcclusion:
+    active: 1
+    swipe: 1
+    noiseTexture: {fileID: 2800000, guid: 3de576afd8437b24695bbe13298d0197, type: 3}
   thickOutlines:
     active: 0
     swipe: 1
@@ -491,7 +495,7 @@ MonoBehaviour:
     iterations: 1
     kernelSize: 5.5
   sharpen:
-    active: 1
+    active: 0
     swipe: 1
     type: 1
     sharpnessStrength: 0.881
