@@ -70,7 +70,45 @@ Shader "Hidden/ToneMapping"
 
                 float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
 
-                return fixed4(col.rgb / (1 + lum), 1.0);
+                return fixed4(col.rgb * rcp(1 + lum), 1.0); //rcp = reciprocni broj
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "InverseExtendedReinhard"
+
+            CGPROGRAM
+            float _WhitePoint;
+
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
+                //half3 tonemappedLuminance = lum * (1 + (lum / (_WhitePoint * _WhitePoint))) / (1 + lum); //tone mapping
+
+                col.rgb = saturate(col.rgb);
+                return fixed4(col.rgb / (_WhitePoint * max(1.0 - col.rgb / _WhitePoint, 0.001)), 1);
+            }
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "InverseLottes"
+
+            CGPROGRAM
+            fixed4 frag (v2f IN) : SV_Target
+            {
+                fixed4 col = tex2D(_MainTex, IN.uv);
+                if (_Swipe < IN.uv.x) return col;
+
+                float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
+
+                return fixed4(saturate(col.rgb) * rcp(1 - lum), 1.0); //rcp = reciprocni broj
             }
             ENDCG
         }

@@ -9,7 +9,9 @@ public class ToneMapping : Effect
 	public enum ToneMapper
 	{
 		ReinhardExtended = 0,
-		Lottes = 1
+		Lottes = 1,
+		InverseReinhardExtended = 2,
+		InverseLottes = 3,
 	}
 
 	public ToneMapper toneMapper;

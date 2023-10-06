@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/Fog/Fog.cs
-  - Assets/NotMine/Fantasy Forest Environment Free Sample/Meshes/Prefabs/grass01.prefab
-  - Assets/NotMine/Fantasy Forest Environment Free Sample/StandardNoCulling.shader
-  - Assets/NotMine/Fantasy Forest Environment Free Sample/PostProcessing Profile.asset
   - Assets/Code/Fog/Fog.shader
   - Assets/Code/ThickOutlines/ThickOutlines.cs
-  - Assets/Code/ToneMapping/ToneMapping.shader
   - Assets/Code/DepthOfField/DepthOfFIeld.shader
-  - Assets/Code/DepthOfField/DepthOfField.cs
+  - Assets/Code/Blur/Blur.cs
+  - Assets/autofocus.cs
+  - Assets/Code/Blur/Blur.shader
+  - Assets/Code/ToneMapping/ToneMapping.shader
   - Assets/Code/DepthOfField/DepthOfField.shader
+  - Assets/Code/DepthOfField/DepthOfField.cs
+  - Assets/Code/Sharpen/Sharpen.shader

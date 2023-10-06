@@ -8,12 +8,19 @@ public class DepthOfField : Effect
 {
 	[Range(0.0f, 50.0f)]
 	public float distance;
-	[Range(0f, 20f)]
+	[Range(0f, 40f)]
 	public float radius;
-	[Range(1, 25)]
-	public int blurIterations;
+	[Range(0f, 10f)]
+	public float blurKernelSize;
+	public bool inverseToneMapping;
+	[Range(0.5f, 2f)]
+	public float invereseToneMapWhitepoint;
+	[Tooltip("Excentuates highlights. May lead to artefacts.")]
+	public bool inverseKarisAverage;
 
+	private Material swipeMat;
 	private Blur blur = new Blur();
+	private ToneMapping toneMapping = new ToneMapping();
 	private enum Passes
 	{
 		GetCircleOfConfusion = 0,
@@ -26,6 +33,12 @@ public class DepthOfField : Effect
 
 	public override void apply(RenderTexture tex)
 	{
+		if (swipeMat == null)
+		{
+			swipeMat = new Material(Shader.Find("Hidden/Swipe"));
+			swipeMat.hideFlags = HideFlags.HideAndDontSave;
+		}
+		swipeMat.SetFloat("_Swipe", swipe);
 		if (mat == null)
 		{
 			mat = new Material(Shader.Find("Hidden/DepthOfField"));
@@ -34,29 +47,54 @@ public class DepthOfField : Effect
 		mat.SetFloat("_Distance", distance);
 		mat.SetFloat("_Radius", radius);
 
-		RenderTexture circleOfConfusion = new RenderTexture(tex);
-		Graphics.Blit(tex, circleOfConfusion, mat, (int)Passes.GetCircleOfConfusion);
+		RenderTexture source = RenderTexture.GetTemporary(tex.descriptor);
+		Graphics.Blit(tex, source);
+
+		//inverse tonemapping
+		if (inverseToneMapping)
+		{
+			toneMapping.toneMapper = ToneMapping.ToneMapper.InverseReinhardExtended;
+			toneMapping.whitePoint = invereseToneMapWhitepoint;
+			toneMapping.apply(source);
+		}
+		
+
+		RenderTexture circleOfConfusion = RenderTexture.GetTemporary(source.descriptor);
+		Graphics.Blit(source, circleOfConfusion, mat, (int)Passes.GetCircleOfConfusion);
+		mat.SetFloat("_BlurKernelSize", blurKernelSize);
 		Graphics.Blit(circleOfConfusion, circleOfConfusion, mat, (int)Passes.MaxFilterNear);
 		Graphics.Blit(circleOfConfusion, circleOfConfusion, mat, (int)Passes.BoxBlurNear);
 		mat.SetTexture("_CircleOfConfusion", circleOfConfusion);
 
-		RenderTexture near = new RenderTexture(tex);
-		Graphics.Blit(tex, near);
-		RenderTexture far = new RenderTexture(tex);
-		Graphics.Blit(tex, far, mat, (int)Passes.GetFar);
+		RenderTexture near = RenderTexture.GetTemporary(source.descriptor);
+		Graphics.Blit(source, near);
+		RenderTexture far = RenderTexture.GetTemporary(source.descriptor);
+		Graphics.Blit(source, far, mat, (int)Passes.GetFar);
 
-		blur.type = Blur.BlurType.OptimisedGaussianBlur;
-		blur.iterations = blurIterations;
+		if (inverseKarisAverage) blur.type = Blur.BlurType.BokehBlurWithInverseKarisAverge;
+		else blur.type = Blur.BlurType.BokehBlur;
+		blur.iterations = 1;
+		blur.kernelSize = blurKernelSize;
 		blur.apply(near);
 		blur.apply(far);
 
 		mat.SetTexture("_Far", far);
-		Graphics.Blit(tex, tex, mat, (int)Passes.MergeFar);
+		Graphics.Blit(source, source, mat, (int)Passes.MergeFar);
 		mat.SetTexture("_Near", near);
-		Graphics.Blit(tex, tex, mat, (int)Passes.MergeNear);
+		Graphics.Blit(source, source, mat, (int)Passes.MergeNear);
 
-		near.Release();
-		far.Release();
-		circleOfConfusion.Release();
+		if (inverseToneMapping)
+		{
+			toneMapping.toneMapper = ToneMapping.ToneMapper.ReinhardExtended;
+			toneMapping.apply(source);
+		}
+
+		swipeMat.SetTexture("_OtherTex", source);
+		Graphics.Blit(tex, tex, swipeMat);
+
+		RenderTexture.ReleaseTemporary(near);
+		RenderTexture.ReleaseTemporary(far);
+		RenderTexture.ReleaseTemporary(circleOfConfusion);
+		RenderTexture.ReleaseTemporary(source);
 	}
 }

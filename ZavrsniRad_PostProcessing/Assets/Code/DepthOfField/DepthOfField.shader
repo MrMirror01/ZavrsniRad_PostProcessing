@@ -86,13 +86,15 @@ Shader "Hidden/DepthOfField"
             Name "MaxFilterNear"
 
             CGPROGRAM
+            float _BlurKernelSize;
+
             fixed getMax(float2 uv){
                 fixed3 maxr = 0;
 
                 //uzimamo uzorke na 7x7 piksela sa centrom u trenutnom pikselu
                 for (int i = -3; i <= 3; i++){
                     for (int j = -3; j <= 3; j++){
-                        maxr = max(maxr, tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).r);
+                        maxr = max(maxr, tex2D(_MainTex, uv + _BlurKernelSize * _MainTex_TexelSize.xy * float2(i, j)).r);
                     }
                 }
 
@@ -116,6 +118,8 @@ Shader "Hidden/DepthOfField"
             Name "BoxBlurNear"
 
             CGPROGRAM
+            float _BlurKernelSize;
+
             fixed getBlurCol(float2 uv){
                 fixed blurcol = 0; //boja zamucenog piksela
 
@@ -123,7 +127,7 @@ Shader "Hidden/DepthOfField"
                 //izracunavamo aritmeticku sredinu boja
                 for (int i = -3; i <= 3; i++){
                     for (int j = -3; j <= 3; j++){
-                        blurcol += tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).r;
+                        blurcol += tex2D(_MainTex, uv + _BlurKernelSize * _MainTex_TexelSize.xy * float2(i, j)).r;
                     }
                 }
                 blurcol /= 49;
