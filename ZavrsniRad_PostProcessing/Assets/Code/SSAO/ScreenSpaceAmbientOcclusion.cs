@@ -14,7 +14,10 @@ public class ScreenSpaceAmbientOcclusion : Effect
 		Blur = 2,
 	}
 
+	[Range(1, 30)]
+	public int kernelSize = 1;
 	public Texture2D noiseTexture;
+	public float radius = 1;
 
 	public void generateNoiseTexture()
 	{
@@ -44,7 +47,12 @@ public class ScreenSpaceAmbientOcclusion : Effect
 			mat.hideFlags = HideFlags.HideAndDontSave;
 		}
 		mat.SetFloat("_Swipe", swipe);
+		mat.SetInt("_KernelSize", kernelSize);
 		mat.SetTexture("_NoiseTex", noiseTexture);
+		mat.SetFloat("_Radius", radius);
+		mat.SetMatrix("_InverseProjectionMat", Camera.main.projectionMatrix.inverse);
+		mat.SetFloat("_TanHalfFov", Mathf.Tan(Camera.main.fieldOfView * Mathf.Deg2Rad / 2));
+		mat.SetFloat("_Aspect", Camera.main.aspect);
 
 		Graphics.Blit(tex, tex, mat, (int)Passes.ApplySSAO);
 	}

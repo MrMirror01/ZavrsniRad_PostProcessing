@@ -1,0 +1,38 @@
+﻿22:15:18.799 |I| Core                           | RequestBuilder thread:8        | MsBuild process with Id = 9664
+22:15:18.801 |I| Core                           | RequestBuilder thread:8        | MsBuild location = C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe
+22:15:18.801 |I| Core                           | RequestBuilder thread:8        | ServerGC = False
+22:15:18.801 |I| Core                           | RequestBuilder thread:8        | 
+22:15:18.801 |I| Core                           | RequestBuilder thread:8        | Start ControllerTask...
+22:15:18.803 |I| Core                           | RequestBuilder thread:8        | Detected version: 17.5
+22:15:18.804 |I| Core                           | RequestBuilder thread:8        | Creating SocketWire with port = 53455
+22:15:18.827 |I| Core                           | RequestBuilder thread:8        | Create protocol...
+22:15:18.897 |I| Core                           | RequestBuilder thread:8        | Create MsBuildModel and advise for new sessions...
+22:15:18.939 |I| Core                           | RequestBuilder thread:8        | Subscribe for changes...
+22:15:18.940 |I| Core                           | RequestBuilder thread:8        | Setup process watchdog...
+22:15:18.942 |I| Core                           | RequestBuilder thread:8        | Run dispatcher...
+22:15:18.945 |I| ProcessWatchdog                | WatchParentPid:10752:12        | Monitoring parent process PID:10752
+22:15:19.038 |I| Core                           | RequestBuilder thread:8        | Get protocol session 'RdProjectModelSession'
+22:15:19.045 |I| Core                           | RequestBuilder thread:8        | Msbuild session 'ProjectModelSessionHost' created
+22:15:19.116 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading 2 project(s) in 6 node(s)...
+22:15:19.117 |I| ProjectModel                   | RequestBuilder thread:8        | Reason: WarmStartup
+22:15:19.122 |I| Build                          | MSBuild LoggingService events queue pump: 30619839:14 | Build started.
+22:15:19.129 |I| BuildQueue                     | RequestBuilder thread:8        | Build queue: False
+22:15:19.345 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'JetBrains.Frontend.2022.2.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+22:15:19.349 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: JetBrains.Frontend.2022.2.csproj
+22:15:19.352 |I| Build                          | RequestBuilder thread:8        | Start build 'JetBrains.Frontend.2022.2.csproj' with 1 target frameworks
+22:15:19.356 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+22:15:19.360 |I| ProjectModel                   | RequestBuilder thread:8        | Project 'Assembly-CSharp.csproj' has load-time sensitive targets: XamlMarkupCompilePass1
+22:15:19.360 |I| BuildQueue                     | RequestBuilder thread:8        | Build immediately: Assembly-CSharp.csproj
+22:15:19.360 |I| Build                          | RequestBuilder thread:8        | Start build 'Assembly-CSharp.csproj' with 1 target frameworks
+22:15:19.362 |I| Build                          | RequestBuilder thread:8        | Targets for build: _CheckForInvalidConfigurationAndPlatform;CollectCentralPackageVersions;ResolveReferences;ResolveProjectReferences;ResolveAssemblyReferences;ResolveComReferences;ResolveNativeReferences;ResolveSdkReferences;ResolveFrameworkReferences;ResolvePackageDependenciesDesignTime;DesignTimeMarkupCompilation;Compile;CoreCompile;XamlMarkupCompilePass1
+22:15:19.796 |I| Build                          | :18                            | Finish build part [1/1] for project 'JetBrains.Frontend.2022.2.csproj': Success
+22:15:19.796 |I| Build                          | :18                            | Finish build project 'JetBrains.Frontend.2022.2.csproj': Success
+22:15:20.110 |I| Build                          | :18                            | Finish build part [1/1] for project 'Assembly-CSharp.csproj': Success
+22:15:20.110 |I| Build                          | :18                            | Finish build project 'Assembly-CSharp.csproj': Success
+22:15:20.498 |I| Build                          | MSBuild LoggingService events queue pump: 30619839:14 | Build succeeded.
+22:15:20.499 |I| ProjectModel                   | RequestBuilder thread:8        | Reloading has finished, statistic: 
+	Total: 1.37 sec
+	Binding: 0.08 sec
+	Evaluation: 0.31 sec
+22:20:41.522 |I| Core                           | RequestBuilder thread:8        | Msbuild session 'ProjectModelSessionHost' was terminated
+22:20:41.523 |I| Core                           | RequestBuilder thread:8        | Connection lost, kill msbuild
