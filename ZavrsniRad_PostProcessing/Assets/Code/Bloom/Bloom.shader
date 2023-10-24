@@ -46,14 +46,14 @@ Shader "Hidden/Bloom"
 		    half3 s =
 		        Sample(uv + o.xy) + Sample(uv + o.zy) +
 		        Sample(uv + o.xw) + Sample(uv + o.zw);
-		    return s * 0.25f;
+		    return s * 0.25;
 		}
 
         half3 Prefilter (half3 c) {
             //the brightness of a color is defined as its brightest component
 			half brightness = max(c.r, max(c.g, c.b));
 
-            //soft knee 
+            //soft knee
 			half soft = brightness - _Filter.y;
 			soft = clamp(soft, 0, _Filter.z);
 			soft = soft * soft * _Filter.w;

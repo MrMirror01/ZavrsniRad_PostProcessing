@@ -48,31 +48,16 @@ Shader "Hidden/Sharpen"
             Name "BoxSharpen"
 
             CGPROGRAM
-            /*static const float kernel[9] = {
-                -1, -1, -1,
-                -1, 9, -1,
-                -1, -1, -1
-            };*/
-            static const float kernel[9] = {
-                0, -1, 0,
-                -1, 5, -1,
-                0, -1, 0
-            };
 
             fixed3 getSharpenColor(float2 uv){
-                fixed3 sharpenCol = 0; //boja izostrenog piksela
-                float totalWeight = 0;
 
-                //uzimamo uzorke na 3x3 piksela sa centrom u trenutnom pikselu
-                //primjenjujemo konvoluciju za izoštravanje
-                for (int i = -1; i <= 1; i++){
-                    for (int j = -1; j <= 1; j++){
-                        float weight = kernel[(i + 1) * 3 + j + 1];
-                        sharpenCol += tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(i, j)).rgb * weight;
-                    }
-                }
+                float3 center = tex2D(_MainTex, uv).rgb * (4 * _SharpnessStrength + 1);
+                float3 up     = tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(0, 1)).rgb * _SharpnessStrength;
+                float3 down   = tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(0, -1)).rgb * _SharpnessStrength;
+                float3 left   = tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(-1, 0)).rgb * _SharpnessStrength;
+                float3 right  = tex2D(_MainTex, uv + _MainTex_TexelSize.xy * float2(1, 0)).rgb * _SharpnessStrength;
 
-                return sharpenCol.rgb;
+                return center - up - down - left - right;
             }
 
             fixed4 frag (v2f IN) : SV_Target
@@ -81,7 +66,7 @@ Shader "Hidden/Sharpen"
                 fixed4 col = tex2D(_MainTex, IN.uv);
                 if (_Swipe < IN.uv.x) return col;
 
-                return fixed4(lerp(col, getSharpenColor(IN.uv), _SharpnessStrength), 1.0);
+                return fixed4(getSharpenColor(IN.uv), 1.0);
             }
             ENDCG
         }

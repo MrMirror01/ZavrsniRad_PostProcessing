@@ -6,10 +6,10 @@ using UnityEngine;
 [Serializable]
 public class ColorCorrection : Effect
 {
-	[Range(-1.0f, 1.0f)]
-	public float brightness;
 	[Range(0.0f, 3.0f)]
 	public float contrast;
+	[Range(-1.0f, 1.0f)]
+	public float brightness;
 	[Range(0.0f, 3.0f)]
 	public float saturation;
 	[Range(0.0f, 3.0f), Tooltip("Default value is 2.2")]

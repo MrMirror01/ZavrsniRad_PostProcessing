@@ -7,27 +7,31 @@ using UnityEngine;
 public class PostProcessingDriver : MonoBehaviour
 {
 	public ScreenSpaceAmbientOcclusion screenSpaceAmbientOcclusion;
-	[Space(5)]
+	[Space(3)]
 	public ThickOutlines thickOutlines;
-	[Space(5)]
+	[Space(3)]
 	public Fog fog;
-	[Space(5)]
+	[Space(3)]
     public Blur blur;
-	[Space(5)]
+	[Space(3)]
     public Sharpen sharpen;
-	[Space(5)]
+	[Space(3)]
 	public DepthOfField depthOfField;
-	[Space(5)]
+	[Space(3)]
 	public Bloom bloom;
-	[Space(5)]
+	[Space(3)]
 	public ToneMapping toneMapping;
-	[Space(5)]
+	[Space(3)]
+	public ColorQuantization colorQuantization;
+	[Space(3)]
 	public Dithering dithering;
-	[Space(5)]
+	[Space(3)]
 	public ColorCorrection colorCorrection;
-	[Space(5)]
+	[Space(3)]
+	public AdvancedColorCorrection advancedColorCorrection;
+	[Space(3)]
 	public ChromaticAborration chromaticAborration;
-	[Space(5)]
+	[Space(3)]
 	public FilmGrain filmGrain;
 
 	private void Start()
@@ -45,8 +49,10 @@ public class PostProcessingDriver : MonoBehaviour
 		if (depthOfField.active) depthOfField.apply(source);
 		if (bloom.active) bloom.apply(source);
 		if (toneMapping.active) toneMapping.apply(source);
+		if (colorQuantization.active) colorQuantization.apply(source);
 		if (dithering.active) dithering.apply(source);
 		if (colorCorrection.active) colorCorrection.apply(source);
+		if (advancedColorCorrection.active) advancedColorCorrection.apply(source);
 		if (chromaticAborration.active) chromaticAborration.apply(source);
 		if (filmGrain.active) filmGrain.apply(source);
 
