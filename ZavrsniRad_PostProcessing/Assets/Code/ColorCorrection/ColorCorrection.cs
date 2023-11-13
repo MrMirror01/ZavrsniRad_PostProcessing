@@ -7,11 +7,11 @@ using UnityEngine;
 public class ColorCorrection : Effect
 {
 	[Range(0.0f, 3.0f)]
-	public float contrast;
+	public float contrast = 1f;
 	[Range(-1.0f, 1.0f)]
-	public float brightness;
+	public float brightness = 0f;
 	[Range(0.0f, 3.0f)]
-	public float saturation;
+	public float saturation = 1f;
 	[Range(0.0f, 3.0f), Tooltip("Default value is 2.2")]
 	public float gamma = 2.2f;
 

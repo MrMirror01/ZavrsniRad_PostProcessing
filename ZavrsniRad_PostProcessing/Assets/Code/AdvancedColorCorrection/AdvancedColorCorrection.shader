@@ -39,12 +39,14 @@ Shader "Hidden/AdvancedColorCorrection"
 
             sampler2D _MainTex;
             float _Swipe;
+            int _HDR;
             float _Exposure;
             float _Temperature;
             float _Tint;
             float3 _Contrast;
             float3 _Brightness;
             float3 _Saturation;
+            float3 _ColorFilter;
             float _Gamma;
 
             static const float3x3 LIN_2_LMS_MAT = {
@@ -94,25 +96,37 @@ Shader "Hidden/AdvancedColorCorrection"
                 if (_Swipe < IN.uv.x)
                     return col;
 
-                 col.rgb = pow(col.rgb, 1 / 2.2); //prebacimo boje iz gamma space-a u linear space
+                col.rgb = pow(col.rgb, 1 / 2.2); //prebacimo boje iz gamma space-a u linear space
 
                 //exposure
                 col.rgb *= _Exposure;
-                col.rgb = saturate(col.rgb); //zakvacimo boje u interval [0, 1]
+                //zakvacimo boje u interval [0, 1] ili [0, beskonacno> ovisno o tome koristi li se HDR
+                col.rgb = max(0, col.rgb);
+                if (_HDR == 0) col.rgb = min(1, col.rgb); 
 
                 //white balance
                 col.rgb = wBalance(col.rgb, _Temperature, _Tint);
-                col.rgb = saturate(col.rgb); //zakvacimo boje u interval [0, 1]
+                //zakvacimo boje u interval [0, 1] ili [0, beskonacno> ovisno o tome koristi li se HDR
+                col.rgb = max(0, col.rgb);
+                if (_HDR == 0) col.rgb = min(1, col.rgb); 
 
                 //contrast & brightness
                 col.rgb = _Contrast * (col.rgb - 0.5) + 0.5 + _Brightness; //dodamo kontrast i svjetlinu
-                col.rgb = saturate(col.rgb); //zakvacimo boje u interval [0, 1]
+                //zakvacimo boje u interval [0, 1] ili [0, beskonacno> ovisno o tome koristi li se HDR
+                col.rgb = max(0, col.rgb);
+                if (_HDR == 0) col.rgb = min(1, col.rgb); 
 
                 //saturation
                 //izracunamo 'crno-bijelu' vrijednost piksela, ali racunajuci na to da neke boje izgledaju svijetlije od drugih
                 float3 gray = dot(col.rgb, float3(0.299, 0.587, 0.144));
                 col.rgb = lerp(gray, col.rgb, _Saturation); //linearno interpoliramo izmedu 'crno-bijele' boje i prave boje koristeci 'Saturation'
-                col.rgb = saturate(col.rgb); //zakvacimo boje u interval [0, 1]
+                col.rgb = max(0, col.rgb);
+                if (_HDR == 0) col.rgb = min(1, col.rgb); 
+
+                col.rgb *= _ColorFilter;
+                //zakvacimo boje u interval [0, 1] ili [0, beskonacno> ovisno o tome koristi li se HDR
+                col.rgb = max(0, col.rgb);
+                if (_HDR == 0) col.rgb = min(1, col.rgb); 
 
                 col.rgb = pow(col.rgb, _Gamma); //ispravljanje gamme, pocetna vrijednost je 2.2
 

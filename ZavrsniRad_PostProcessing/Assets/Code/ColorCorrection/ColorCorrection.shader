@@ -49,6 +49,8 @@ Shader "Hidden/ColorCorrection"
                 fixed4 col = tex2D(_MainTex, IN.uv);
                 if (_Swipe < IN.uv.x) return col;
 
+                col.rgb = saturate(col.rgb); //zakvacimo boje u interval [0, 1]
+
                 col.rgb = pow(col.rgb, 1 / 2.2); //prebacimo boje iz gamma space-a u linear space
                 
                 col.rgb = _Contrast * (col.rgb - 0.5) + 0.5 + _Brightness; //dodamo kontrast i svjetlinu

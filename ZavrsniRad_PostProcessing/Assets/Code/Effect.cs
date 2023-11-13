@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public abstract class Effect
 {
-    public bool active = true;
+    public bool active = false;
     [Range(0f, 1f)]
     public float swipe = 1f;
 

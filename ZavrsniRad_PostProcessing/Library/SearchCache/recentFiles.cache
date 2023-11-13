@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/SSAO/noise.png
-  - Assets/Code/SSAO/ScreenSpaceAmbientOcclusion.cs
-  - Assets/Code/SSAO/ScreenSpaceAmbientOcclusion.shader
-  - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.cs
+  - Assets/Code/Effect.cs
+  - Assets/Code/EffectGroupEditor.cs
   - Assets/Code/PostProcessingDriver.cs
+  - Assets/Code/ChromaticAborration/ChromaticAborration.cs
+  - Assets/Code/ChromaticAborration/ChromaticAborration.shader
+  - Assets/Code/Vignette/Vignette.cs
+  - Assets/Code/Vignette/Vignette.shader
+  - Assets/Code/ColorCorrection/ColorCorrection.cs
+  - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.cs
   - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.shader
-  - Assets/Code/Sharpen/Sharpen.shader
-  - Assets/Code/Bloom/Bloom.cs
-  - Assets/Code/ColorQuantization/ColorQuantization.cs
-  - Assets/Code/ColorQuantization/ColorQuantization.shader
