@@ -67,7 +67,7 @@ Shader "Hidden/ThickOutlines"
                 depthDiff = saturate(depthDiff); //zakljucamo vrijednost u rasponu 0-1
                 depthDiff = pow(depthDiff, _Sharpness); //dobivenu vrijednost potenciramo kako bismo dobili 'ciste' obrube (manje postepenog otpadanja)
 
-                float4 finalCol = col * (1. - depthDiff);
+                float4 finalCol = float4(saturate(col.rgb * (1. - depthDiff)), 1);
 
                 if (_Swipe < IN.uv.x) return col;
                 return finalCol;

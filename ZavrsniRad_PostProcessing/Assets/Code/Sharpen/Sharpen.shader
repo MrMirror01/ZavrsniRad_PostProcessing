@@ -82,7 +82,7 @@ Shader "Hidden/Sharpen"
             }
 
             fixed3 getSharpenColor(float2 uv){
-                float sharpness = -(1.0 / lerp(10.0, 4.0, saturate(_SharpnessStrength)));
+                float sharpness = -(1.0 / lerp(10.0, 3.5, saturate(_SharpnessStrength)));
 
                 float3 a = sample(uv, -1, -1); //d
                 float3 b = sample(uv,  0, -1); //o
@@ -107,8 +107,8 @@ Shader "Hidden/Sharpen"
                 float3 amplitude = saturate(min(mini, 2.0 - maxi) / maxi);
                 amplitude = sqrt(amplitude);
 
-                float weight = amplitude * sharpness;
-                float reciprocalWeight = 1.0 / (1.0 + 4.0 * weight);
+                float3 weight = amplitude * sharpness;
+                float3 reciprocalWeight = 1.0 / (1.0 + 4.0 * weight);
 
                 return saturate((b * weight + d * weight + f * weight + h * weight + e) * reciprocalWeight);
             }

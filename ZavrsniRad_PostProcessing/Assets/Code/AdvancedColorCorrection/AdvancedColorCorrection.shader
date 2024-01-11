@@ -114,7 +114,7 @@ Shader "Hidden/AdvancedColorCorrection"
                 col.rgb = _Contrast * (col.rgb - 0.5) + 0.5 + _Brightness; //dodamo kontrast i svjetlinu
                 //zakvacimo boje u interval [0, 1] ili [0, beskonacno> ovisno o tome koristi li se HDR
                 col.rgb = max(0, col.rgb);
-                if (_HDR == 0) col.rgb = min(1, col.rgb); 
+                if (_HDR == 0) col.rgb = min(1, col.rgb);
 
                 //saturation
                 //izracunamo 'crno-bijelu' vrijednost piksela, ali racunajuci na to da neke boje izgledaju svijetlije od drugih

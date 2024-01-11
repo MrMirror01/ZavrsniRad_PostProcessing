@@ -369,6 +369,7 @@
 "Assets/Code/Sharpen/Sharpen.cs"
 "Assets/Code/SSAO/ScreenSpaceAmbientOcclusion1.cs"
 "Assets/Code/SSAO/SSAO.cs"
+"Assets/Code/TESTEFFECT.cs"
 "Assets/Code/ThickOutlines/ThickOutlines.cs"
 "Assets/Code/ToneMapping/ToneMapping.cs"
 "Assets/Code/Vignette/Vignette.cs"

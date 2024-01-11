@@ -59,9 +59,10 @@ Shader "Hidden/Blur"
                         blurcol += tex2D(_MainTex, uv + _KernelSize * _MainTex_TexelSize.xy * float2(i, j)).rgb;
                     }
                 }
+                //rezultat podijelimo sa ukupnim brojem uzoraka
                 blurcol /= 49;
 
-                return blurcol.rgb;
+                return blurcol.rgb; //vratimo dobivenu boju
             }
 
             fixed4 frag (v2f IN) : SV_Target

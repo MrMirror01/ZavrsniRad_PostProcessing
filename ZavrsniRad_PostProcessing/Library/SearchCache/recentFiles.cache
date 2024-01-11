@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/Effect.cs
-  - Assets/Code/EffectGroupEditor.cs
-  - Assets/Code/PostProcessingDriver.cs
-  - Assets/Code/ChromaticAborration/ChromaticAborration.cs
-  - Assets/Code/ChromaticAborration/ChromaticAborration.shader
-  - Assets/Code/Vignette/Vignette.cs
-  - Assets/Code/Vignette/Vignette.shader
-  - Assets/Code/ColorCorrection/ColorCorrection.cs
-  - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.cs
+  - Assets/Code/ThickOutlines/ThickOutlines.cs
+  - Assets/Code/ThickOutlines/ThickOutlines.shader
+  - Assets/Code/ColorCorrection/ColorCorrection.shader
   - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.shader
+  - Assets/Code/PostProcessingDriver.cs
+  - Assets/Code/ProgressiveDownsampleing/ProgressiveDownsampleing.cs
+  - Assets/Code/ColorQuantization/ColorQuantization.shader
+  - Assets/Code/ColorQuantization/palette8_2.png
+  - Assets/Code/ColorQuantization/palette8.png
+  - Assets/Code/test.png

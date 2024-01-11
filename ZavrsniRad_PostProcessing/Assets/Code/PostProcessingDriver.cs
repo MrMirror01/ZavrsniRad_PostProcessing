@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 [ExecuteInEditMode]
 public class PostProcessingDriver : MonoBehaviour
@@ -45,6 +46,17 @@ public class PostProcessingDriver : MonoBehaviour
 
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
+		//Material mat = new Material(Shader.Find("Hidden/TESTSHADER"));
+		//Graphics.Blit(source, source, mat);
+
+		/*Texture2D renderTex = new Texture2D(source.width, source.height);
+
+		renderTex.ReadPixels(new Rect(0, 0, renderTex.width, renderTex.height), 0, 0);
+		renderTex.Apply();
+
+		byte[] bytes = renderTex.EncodeToPNG();
+		File.WriteAllBytes(Application.dataPath + @"\Code\test.png", bytes);*/
+
 		//if (ssao.active) ssao.apply(source);
 		if (thickOutlines.active) thickOutlines.apply(source);
 		if (fog.active) fog.apply(source);
@@ -61,6 +73,14 @@ public class PostProcessingDriver : MonoBehaviour
 		if (colorQuantization.active) colorQuantization.apply(source);
 		if (progressiveDownsampleing.active) progressiveDownsampleing.apply(source);
 		if (dithering.active) dithering.apply(source);
+
+		/*Texture2D TEX = new Texture2D(source.width, source.height);
+
+		TEX.ReadPixels(new Rect(0, 0, TEX.width, TEX.height), 0, 0);
+		TEX.Apply();
+
+		byte[] bytes = TEX.EncodeToPNG();
+		File.WriteAllBytes(Application.dataPath + @"\Code\test.png", bytes);*/
 
 		Graphics.Blit(source, destination);
 	}

@@ -65,6 +65,7 @@ Shader "Hidden/ColorQuantization"
 
                 float mapValue = ditherMap4x4[mapSize * x + y] / (mapSize * mapSize) - 0.5;
                 col.rgb += _Spread * mapValue;
+                col.rgb = saturate(col.rgb);
 
                 col.rgb = floor(col.rgb * (_NumberOfColors - 1) + 0.5) / (_NumberOfColors - 1);
 
@@ -93,6 +94,7 @@ Shader "Hidden/ColorQuantization"
 
                 float mapValue = ditherMap4x4[mapSize * x + y] / (mapSize * mapSize) - 0.5;
                 gray += _Spread * mapValue;
+                gray = saturate(gray);
 
                 gray = floor(gray * (_NumberOfColors - 1) + 0.5) / (_NumberOfColors - 1);
 

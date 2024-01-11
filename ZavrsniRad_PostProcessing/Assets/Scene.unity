@@ -617,7 +617,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -689,55 +689,55 @@ MonoBehaviour:
     active: 0
     swipe: 1
     thickness: 3
-    depthFactor: 1000
-    sharpness: 3
+    depthFactor: 925
+    sharpness: 7.9
   fog:
     active: 0
     swipe: 1
-    density: 0.103
-    fogColor: {r: 1, g: 1, b: 1, a: 0}
+    density: 0.105
+    fogColor: {r: 1, g: 1, b: 1, a: 1}
   blur:
     active: 0
     swipe: 1
-    type: 0
-    iterations: 1
-    kernelSize: 1
+    type: 5
+    iterations: 4
+    kernelSize: 2.44
   sharpen:
     active: 0
     swipe: 1
     type: 0
-    sharpnessStrength: 0.755
+    sharpnessStrength: 1
   bloom:
-    active: 0
+    active: 1
     swipe: 1
-    iterations: 4
+    iterations: 6
     intensity: 0.93
-    threshold: 2.55
-    softThreshold: 0.358
+    threshold: 2.45
+    softThreshold: 0.361
     debug: 0
   depthOfField:
     active: 0
     swipe: 1
-    distance: 6.3
-    radius: 5.7
-    blurKernelSize: 0.66
-    inverseToneMapping: 0
-    invereseToneMapWhitepoint: 1.255
+    distance: 7
+    radius: 7.2
+    blurKernelSize: 1.09
+    inverseToneMapping: 1
+    invereseToneMapWhitepoint: 1.469
     inverseKarisAverage: 1
   chromaticAborration:
     active: 0
     swipe: 1
     offsetDirection: {x: 1, y: 1}
-    offsetAmount: 0.0063
+    offsetAmount: 0.0112
   filmGrain:
     active: 0
     swipe: 1
-    intensity: 0.1
+    intensity: 0.418
   vignette:
     active: 0
     swipe: 1
-    intensity: -0.225
-    falloff: 4.6
+    intensity: 0.068
+    falloff: 3.1
     round: 0
   colorCorrection:
     active: 0
@@ -768,18 +768,18 @@ MonoBehaviour:
     active: 0
     swipe: 1
     toneMapper: 0
-    whitePoint: 5.2
+    whitePoint: 2.13
   colorQuantization:
     active: 0
     swipe: 1
-    spread: 0.106
+    spread: 0.15
     numberOfColors: 8
     usePalette: 1
     palette: {fileID: 2800000, guid: 459ab4c32664b3e4aa065c990d45c5cd, type: 3}
   progressiveDownsampleing:
     active: 0
     swipe: 1
-    iterations: 1
+    iterations: 2
     filterMode: 0
   dithering:
     active: 0
