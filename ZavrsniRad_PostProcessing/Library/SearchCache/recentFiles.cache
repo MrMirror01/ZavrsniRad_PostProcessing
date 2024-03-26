@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/ThickOutlines/ThickOutlines.cs
-  - Assets/Code/ThickOutlines/ThickOutlines.shader
-  - Assets/Code/ColorCorrection/ColorCorrection.shader
-  - Assets/Code/AdvancedColorCorrection/AdvancedColorCorrection.shader
-  - Assets/Code/PostProcessingDriver.cs
-  - Assets/Code/ProgressiveDownsampleing/ProgressiveDownsampleing.cs
-  - Assets/Code/ColorQuantization/ColorQuantization.shader
-  - Assets/Code/ColorQuantization/palette8_2.png
   - Assets/Code/ColorQuantization/palette8.png
+  - Assets/Code/Bloom/Bloom.shader
+  - Assets/Code/ToneMapping/ToneMapping.shader
+  - Assets/Code/DepthOfField/DepthOfField.cs
+  - Assets/Code/source.png
+  - Assets/Code/near.png
+  - Assets/Code/DepthOfField/DepthOfField.shader
+  - Assets/Code/PostProcessingDriver.cs
   - Assets/Code/test.png
+  - Assets/Code/FilmGrain/FilmGrain.shader

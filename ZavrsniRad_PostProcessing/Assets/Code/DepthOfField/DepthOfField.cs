@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [Serializable]
@@ -57,7 +58,6 @@ public class DepthOfField : Effect
 			toneMapping.whitePoint = invereseToneMapWhitepoint;
 			toneMapping.apply(source);
 		}
-		
 
 		RenderTexture circleOfConfusion = RenderTexture.GetTemporary(source.descriptor);
 		Graphics.Blit(source, circleOfConfusion, mat, (int)Passes.GetCircleOfConfusion);

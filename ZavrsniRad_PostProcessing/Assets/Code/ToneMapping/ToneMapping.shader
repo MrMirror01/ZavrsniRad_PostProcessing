@@ -51,9 +51,10 @@ Shader "Hidden/ToneMapping"
                 if (_Swipe < IN.uv.x) return col;
 
                 float lum = dot(col.rgb, float3(0.299, 0.587, 0.144)); //luminance of pixel
-                half3 tonemappedLuminance = lum * (1 + (lum / (_WhitePoint * _WhitePoint))) / (1 + lum); //tone mapping
+                float wp2 = _WhitePoint * _WhitePoint;
+                float3 tonemappedLuminance = (1 + (lum / wp2)) / (1 + lum); //tone mapping
 
-                return fixed4(col.rgb * (tonemappedLuminance / lum), 1);
+                return fixed4(col.rgb * tonemappedLuminance, 1);
             }
             ENDCG
         }

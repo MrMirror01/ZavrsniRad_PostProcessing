@@ -15,7 +15,7 @@ public class ToneMapping : Effect
 	}
 
 	public ToneMapper toneMapper;
-	[Range(1, 10)]
+	[Range(1, 100)]
 	public float whitePoint = 1.0f;
 
 	public override void apply(RenderTexture tex)
