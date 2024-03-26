@@ -716,14 +716,14 @@ MonoBehaviour:
     softThreshold: 0.361
     debug: 0
   depthOfField:
-    active: 1
+    active: 0
     swipe: 1
-    distance: 6.9
-    radius: 5.5
-    blurKernelSize: 1.1
-    inverseToneMapping: 0
-    invereseToneMapWhitepoint: 1.419
-    inverseKarisAverage: 0
+    distance: 7.2
+    radius: 5.3
+    blurKernelSize: 1.91
+    inverseToneMapping: 1
+    invereseToneMapWhitepoint: 1.436
+    inverseKarisAverage: 1
   chromaticAborration:
     active: 0
     swipe: 1
@@ -742,10 +742,10 @@ MonoBehaviour:
   colorCorrection:
     active: 0
     swipe: 1
-    contrast: 1
-    brightness: 0
-    saturation: 1
-    gamma: 2.2
+    contrast: 1.11
+    brightness: 0.05
+    saturation: 1.13
+    gamma: 1.96
   advancedColorCorrection:
     active: 0
     swipe: 1

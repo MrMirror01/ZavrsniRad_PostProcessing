@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recentFilesPaths:
-  - Assets/Code/ColorQuantization/palette8.png
   - Assets/Code/Bloom/Bloom.shader
   - Assets/Code/ToneMapping/ToneMapping.shader
   - Assets/Code/DepthOfField/DepthOfField.cs
@@ -21,5 +20,6 @@ MonoBehaviour:
   - Assets/Code/near.png
   - Assets/Code/DepthOfField/DepthOfField.shader
   - Assets/Code/PostProcessingDriver.cs
-  - Assets/Code/test.png
   - Assets/Code/FilmGrain/FilmGrain.shader
+  - Assets/Code/TESTEFFECT.cs
+  - Assets/Code/test.png
